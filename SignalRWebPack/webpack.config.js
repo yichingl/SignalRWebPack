@@ -8,7 +8,8 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "wwwroot"),
         filename: "[name].[chunkhash].js",
-        publicPath: "/"
+        publicPath: "/",
+        library: "TestLibraryName"
     },
     resolve: {
         extensions: [".js", ".ts"]

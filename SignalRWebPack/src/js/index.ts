@@ -1,6 +1,6 @@
 ﻿import "../css/main.css";
 import * as signalR from "@aspnet/signalr";
-import { obj } from "./testGlobal";
+import { global_obj } from "./testGlobal";
 
 
 const divMessages: HTMLDivElement = document.querySelector("#divMessages");
@@ -37,4 +37,9 @@ function send() {
         .then(() => tbMessage.value = "");
 }
 
-console.log("Global num2: " + obj.printValue());
+console.log("Global num2: " + global_obj.printValue());
+console.log("exporting to library...");
+
+export {
+    global_obj
+}

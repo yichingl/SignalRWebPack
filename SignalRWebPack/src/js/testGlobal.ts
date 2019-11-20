@@ -18,4 +18,4 @@ class Numbers {
 }
 console.log("Global num: " + global_num)
 console.log(Numbers.sval)   //static variable  
-export var obj:Numbers = new Numbers();
+export var global_obj:Numbers = new Numbers();
