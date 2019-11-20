@@ -338,3 +338,5 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+SignalRWebPack/src/js/*.js
+SignalRWebPack/src/js/*.js.map
