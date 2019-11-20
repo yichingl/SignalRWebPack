@@ -1,4 +1,4 @@
-﻿import "./css/main.css";
+﻿import "../css/main.css";
 import * as signalR from "@aspnet/signalr";
 import { obj } from "./testGlobal";
 
