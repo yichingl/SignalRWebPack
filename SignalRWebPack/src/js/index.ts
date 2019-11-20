@@ -1,6 +1,7 @@
 ﻿import "../css/main.css";
 import * as signalR from "@aspnet/signalr";
 import { global_obj } from "./testGlobal";
+import { testRsHub } from "./Hubs/test_fakeMainHub";
 
 
 const divMessages: HTMLDivElement = document.querySelector("#divMessages");
@@ -41,5 +42,6 @@ console.log("Global num2: " + global_obj.printValue());
 console.log("exporting to library...");
 
 export {
+    testRsHub,
     global_obj
 }
