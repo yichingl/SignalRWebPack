@@ -2,7 +2,7 @@
 
 export class FakeRsVikHub extends FakeRsServerHub {
     constructor(signalURL: string) {
-        super(signalURL, 'vik');
+        super(signalURL, 'fakevik');
     }
     configure() {
         console.log("FAKE RS VIK HUB: configure()");

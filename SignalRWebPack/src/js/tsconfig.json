@@ -16,12 +16,12 @@
         "testGlobal.ts",
         "testGlobalHelper.ts",
         "Hubs/test_RsServerHub.ts",
-        "Hubs/test_RsVicHub.ts",
+        "Hubs/test_RsVikHub.ts",
         "Hubs/test_RsMainHub.ts",
-        "Hubs/RsHub.ts",
+        "Hubs/RsServerHub.ts",
         "Hubs/RsVikHub.ts",
         "Hubs/RsLibraryHub.ts",
-        "Hubs/HubMain.ts"
+        "Hubs/RsMainHub.ts"
     ],
     "compileOnSave": true
 }

@@ -1,6 +1,8 @@
 ﻿import "../css/main.css";
 import { global_obj } from "./testGlobal";
 import { testRsHub } from "./Hubs/test_RsMainHub";
+import { vikHub } from "./Hubs/RsMainHub";
+import { libraryHub } from "./Hubs/RsMainHub";
 
 
 const divMessages: HTMLDivElement = document.querySelector("#divMessages");
@@ -41,5 +43,7 @@ console.log("exporting to library...");
 
 export {
     testRsHub,
-    global_obj
+    global_obj,
+    vikHub,
+    libraryHub
 }

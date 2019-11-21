@@ -1,6 +1,6 @@
 ﻿import * as signalR from '@aspnet/signalr'
 
-export abstract class RsHub {
+export abstract class RsServerHub {
     baseUrl: string;
     hubPath: string;
     connection: any;

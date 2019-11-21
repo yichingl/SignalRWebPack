@@ -1,6 +1,6 @@
-﻿import { RsHub } from "./RsHub";
+﻿import { RsServerHub } from "./RsServerHub";
 
-export class RsLibraryHub extends RsHub {
+export class RsLibraryHub extends RsServerHub {
     constructor(signalUrl: string) {
         super(signalUrl, 'library');
     }
