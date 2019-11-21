@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <None Remove="src\index.ts" />
+    <None Remove="src\js\Hubs\test_RsServerHub.ts" />
   </ItemGroup>
 
   <ItemGroup>

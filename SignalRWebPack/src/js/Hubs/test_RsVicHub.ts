@@ -1,4 +1,4 @@
-﻿import { FakeRsServerHub } from "./test_IFakeHub";
+﻿import { FakeRsServerHub } from "./test_RsServerHub";
 
 export class FakeRsVikHub extends FakeRsServerHub {
     constructor(signalURL: string) {

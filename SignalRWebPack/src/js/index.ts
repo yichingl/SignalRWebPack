@@ -1,6 +1,6 @@
 ﻿import "../css/main.css";
 import { global_obj } from "./testGlobal";
-import { testRsHub } from "./Hubs/test_fakeMainHub";
+import { testRsHub } from "./Hubs/test_RsMainHub";
 
 
 const divMessages: HTMLDivElement = document.querySelector("#divMessages");
