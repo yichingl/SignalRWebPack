@@ -1,5 +1,4 @@
 ﻿import "../css/main.css";
-import * as signalR from "@aspnet/signalr";
 import { global_obj } from "./testGlobal";
 import { testRsHub } from "./Hubs/test_fakeMainHub";
 
@@ -9,11 +8,9 @@ const tbMessage: HTMLInputElement = document.querySelector("#tbMessage");
 const btnSend: HTMLButtonElement = document.querySelector("#btnSend");
 const username = new Date().getTime();
 
-const connection = new signalR.HubConnectionBuilder()
-    .withUrl("/hub")
-    .build();
 
-connection.on("messageReceived", (username: string, message: string) => {
+
+testRsHub.connection.on("messageReceived", (username: string, message: string) => {
     let messageContainer = document.createElement("div");
 
     messageContainer.innerHTML =
@@ -23,10 +20,11 @@ connection.on("messageReceived", (username: string, message: string) => {
     divMessages.scrollTop = divMessages.scrollHeight;
 });
 
-connection.start().catch(err => document.write(err));
+testRsHub.connection.start().catch(err => document.write(err));
 
 tbMessage.addEventListener("keyup", (e: KeyboardEvent) => {
     if (e.keyCode === 13) {
+        console.log("sending message...")
         send();
     }
 });
@@ -34,7 +32,7 @@ tbMessage.addEventListener("keyup", (e: KeyboardEvent) => {
 btnSend.addEventListener("click", send);
 
 function send() {
-    connection.send("newMessage", username, tbMessage.value)
+    testRsHub.connection.send("newMessage", username, tbMessage.value)
         .then(() => tbMessage.value = "");
 }
 

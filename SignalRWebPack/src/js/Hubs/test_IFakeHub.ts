@@ -13,6 +13,9 @@ export abstract class FakeRsServerHub{
     }
     public build() {
         console.log("FAKE HUB: build()");
+        this.connection = new signalR.HubConnectionBuilder()
+            .withUrl("/hub")
+            .build();
     }
     public configure() {
         console.log("FAKE HUB: configure()");
