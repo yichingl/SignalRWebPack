@@ -15,7 +15,7 @@ export abstract class RsServerHub {
 
     public build() {
         var cn = false;
-        console.log(`Building Hub: ${this.hubPath} at base url ${this.baseUrl}`);
+        console.log(`Building Hub: ${this.hubPath} at url ${this.baseUrl}/${this.hubPath}`);
         this.connection = new signalR.HubConnectionBuilder()
             .withUrl(`${this.baseUrl}/${this.hubPath}`)
             .build();
