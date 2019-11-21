@@ -16,8 +16,11 @@ export abstract class RsServerHub {
     public build() {
         var cn = false;
         console.log(`Building Hub: ${this.hubPath} at base url ${this.baseUrl}`);
-        this.connection = new signalR.HubConnectionBuilder().withUrl(`${this.baseUrl}/${this.hubPath}`).build();
+        this.connection = new signalR.HubConnectionBuilder()
+            .withUrl(`${this.baseUrl}/${this.hubPath}`)
+            .build();
         console.log(`Hub "${this.hubPath}" has been created. Starting...`);
+
         this.connection.start().then(function () { cn = true; });
         console.log(`Hub "${this.hubPath}" has been started.`);
 

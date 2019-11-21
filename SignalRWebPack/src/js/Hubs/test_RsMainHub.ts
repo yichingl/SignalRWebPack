@@ -1,4 +1,4 @@
 ﻿import { FakeRsVikHub } from "./test_RsVikHub";
 
-export var testRsHub = new FakeRsVikHub("http://localhost:testhub_port");
+export var testRsHub = new FakeRsVikHub("/hub");
 testRsHub.setConnected();

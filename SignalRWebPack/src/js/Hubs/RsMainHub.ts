@@ -1,8 +1,8 @@
 ﻿import { RsVikHub } from "./RsVikHub";
 import { RsLibraryHub } from "./RsLibraryHub";
 
-export var vikHub = new RsVikHub("https://localhost:44395/");
-export var libraryHub = new RsLibraryHub("https://localhost:44395/");
+export var vikHub = new RsVikHub("/hub");
+export var libraryHub = new RsLibraryHub("/hub");
 
 console.info("Vik Hub Connected: " + vikHub.connected);
 console.info("Library Hub Connected: " + libraryHub.connected);
