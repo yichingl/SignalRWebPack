@@ -13,8 +13,6 @@
     ],
     "files": [
         "index.ts",
-        "testGlobal.ts",
-        "testGlobalHelper.ts",
         "Hubs/test_RsServerHub.ts",
         "Hubs/test_RsVikHub.ts",
         "Hubs/test_RsMainHub.ts",
