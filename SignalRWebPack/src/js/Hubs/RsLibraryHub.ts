@@ -18,7 +18,7 @@ export class RsLibraryHub extends RsServerHub {
         console.info(JSON.stringify(models));
     }
 
-    update() {
+    /*update() {
         this.getConnection().invoke("UpdateLML");
-    }
+    }*/
 }

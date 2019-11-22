@@ -37,6 +37,11 @@ export abstract class RsServerHub {
             });
     }
 
+
+    // Configure Methods
+    abstract configure(): void;
+
+
     // Public Properties
     public getConnection() {
         return this.connection;
@@ -44,13 +49,15 @@ export abstract class RsServerHub {
     public getConnectionStatus() {
         return this.connected;
     }
-
-    // Configure Methods
-    public configure() {
-        // Nothing, add events here
+    public getBaseUrl() {
+        return this.baseUrl;
+    }
+    public getHubPath() {
+        return this.hubPath;
     }
 
 
+    // Listen for connection events
     public addEvent(event: string, handler: Function) {
         this.connection.on(event, handler);
     }
