@@ -5,11 +5,11 @@ export class RsVikHub extends RsServerHub {
         super(signalUrl, 'vik');
     }
 
-    configure() {
+    /*configure() {
         this.addEvent("SendVIKConnectionStatus", this.statusUpdate);
     }
 
     statusUpdate(status: string) {
         console.info("VIK Connection: " + status);
-    }
+    }*/
 }

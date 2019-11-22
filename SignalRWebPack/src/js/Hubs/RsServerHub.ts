@@ -21,19 +21,19 @@ export abstract class RsServerHub {
         this._startConnection();
     }
     private _buildConnection() {
-        console.log(`Building Hub: ${this.hubPath} at url ${this.baseUrl}/${this.hubPath}`);
+        console.log(`HUB: building ${this.hubPath} at url ${this.baseUrl}/${this.hubPath}`);
         this.connection = new signalR.HubConnectionBuilder()
             .withUrl(`${this.baseUrl}/${this.hubPath}`)
             .build();
     }
     private _startConnection() {
-        console.log(`Hub "${this.hubPath}" has been created. Starting...`);
+        console.log(`HUB: "${this.hubPath}" has been created. Starting...`);
         this.connection.start()
             .then( () => {
-                console.log(`Hub "${this.hubPath}" has connected.`);
+                console.log(`HUB: "${this.hubPath}" has connected.`);
                 this.connected = true;
             }).catch( err => {
-                console.error(`Hub "${this.hubPath}" has failed to connect.`);
+                console.error(`HUB: "${this.hubPath}" has failed to connect.`);
             });
     }
 

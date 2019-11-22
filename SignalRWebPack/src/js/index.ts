@@ -1,5 +1,4 @@
 ﻿import "../css/main.css";
-import { global_obj } from "./testGlobal";
 import { testRsHub } from "./Hubs/test_RsMainHub";
 import { vikHub } from "./Hubs/RsMainHub";
 import { libraryHub } from "./Hubs/RsMainHub";
@@ -9,10 +8,9 @@ const tbMessage: HTMLInputElement = document.querySelector("#tbMessage");
 const btnSend: HTMLButtonElement = document.querySelector("#btnSend");
 const username = new Date().getTime();
 
-console.log(2);
+/*
 
-
-testRsHub.connection.on("messageReceived", (username: string, message: string) => {
+testRsHub.getConnection().on("messageReceived", (username: string, message: string) => {
     let messageContainer = document.createElement("div");
 
     messageContainer.innerHTML =
@@ -22,7 +20,7 @@ testRsHub.connection.on("messageReceived", (username: string, message: string) =
     divMessages.scrollTop = divMessages.scrollHeight;
 });
 
-testRsHub.connection.start().catch(err => document.write(err));
+testRsHub.getConnection().start().catch(err => document.write(err));
 
 tbMessage.addEventListener("keyup", (e: KeyboardEvent) => {
     if (e.keyCode === 13) {
@@ -34,16 +32,13 @@ tbMessage.addEventListener("keyup", (e: KeyboardEvent) => {
 btnSend.addEventListener("click", send);
 
 function send() {
-    testRsHub.connection.send("newMessage", username, tbMessage.value)
+    testRsHub.getConnection().send("newMessage", username, tbMessage.value)
         .then(() => tbMessage.value = "");
 }
-
-console.log("Global num2: " + global_obj.printValue());
-console.log("exporting to library...");
+*/
 
 export {
     testRsHub,
-    global_obj,
     vikHub,
     libraryHub
 }
