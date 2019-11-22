@@ -1,47 +1,58 @@
 ﻿import * as signalR from '@aspnet/signalr'
 
 export abstract class RsServerHub {
-    baseUrl: string;
-    hubPath: string;
-    connection: any;
-    connected: boolean = false;
+
+    private connection: any;
+    private connected: boolean;
+    private baseUrl: string;
+    private hubPath: string;
 
     constructor(signalUrl: string, hubName: string) {
+        this.connected = false;
         this.baseUrl = signalUrl;
         this.hubPath = hubName;
-        this.build();
+        this._initHub();
         this.configure();
     }
 
-    public build() {
-        var cn = false;
+    // Build Methods
+    private _initHub() {
+        this._buildConnection();
+        this._startConnection();
+    }
+    private _buildConnection() {
         console.log(`Building Hub: ${this.hubPath} at url ${this.baseUrl}/${this.hubPath}`);
         this.connection = new signalR.HubConnectionBuilder()
             .withUrl(`${this.baseUrl}/${this.hubPath}`)
             .build();
+    }
+    private _startConnection() {
         console.log(`Hub "${this.hubPath}" has been created. Starting...`);
-
-        this.connection.start().then(function () { cn = true; });
-        console.log(`Hub "${this.hubPath}" has been started.`);
-
-        this.connected = cn;
+        this.connection.start()
+            .then( () => {
+                console.log(`Hub "${this.hubPath}" has connected.`);
+                this.connected = true;
+            }).catch( err => {
+                console.error(`Hub "${this.hubPath}" has failed to connect.`);
+            });
     }
 
+    // Public Properties
+    public getConnection() {
+        return this.connection;
+    }
+    public getConnectionStatus() {
+        return this.connected;
+    }
+
+    // Configure Methods
     public configure() {
-
         // Nothing, add events here
-
     }
 
 
     public addEvent(event: string, handler: Function) {
         this.connection.on(event, handler);
-    }
-
-    public setConnected() {
-        this.connected = true;
-        console.info("Connected!");
-        return this.connected;
     }
 }
 

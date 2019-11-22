@@ -19,6 +19,6 @@ export class RsLibraryHub extends RsServerHub {
     }
 
     update() {
-        this.connection.invoke("UpdateLML");
+        this.getConnection().invoke("UpdateLML");
     }
 }

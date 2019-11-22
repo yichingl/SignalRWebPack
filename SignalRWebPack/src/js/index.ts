@@ -9,6 +9,8 @@ const tbMessage: HTMLInputElement = document.querySelector("#tbMessage");
 const btnSend: HTMLButtonElement = document.querySelector("#btnSend");
 const username = new Date().getTime();
 
+console.log(2);
+
 
 testRsHub.connection.on("messageReceived", (username: string, message: string) => {
     let messageContainer = document.createElement("div");
