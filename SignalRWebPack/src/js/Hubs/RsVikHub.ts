@@ -12,11 +12,8 @@ export class RsVikHub extends RsServerHub {
     }
 
     public configure() {
-        console.log(`HUB: "${this.getHubPath()}" is getting configured.`);
-        //this.addEvent("SendVIKConnectionStatus", this.gotStatusUpdate);
-        //this.addEvent("SendVIKConnectionStatus", this.gotDataUpdate);
-        this.getConnection().on("SendVIKConnectionStatus", (event) => this.gotStatusUpdate(event));
-        //this.getConnection().on("SendVIKConnectionStatus", this.gotStatusUpdate2);
+        this.addEvent("SendVIKConnectionStatus", (event) => this.gotStatusUpdate(event));
+        this.addEvent("SendVIKConnectionStatus", (event) => this.gotDataUpdate(event));
         console.log(`HUB: "${this.getHubPath()}" has been configured.`);
     }
 
@@ -26,14 +23,8 @@ export class RsVikHub extends RsServerHub {
         console.log(`HUB: "${this.hubPath}" has connection status: ${status}.`);
     }
 
-    /*public gotStatusUpdate2(status: any) {
-        //testtest
-        console.log("hello: vik status2");
-        console.log(`HUB: "${this.hubPath}" has connection2 status ${status}.`);
-    }*/
-
-    /*public gotDataUpdate(dataArray: any) = (event) => {
+    public gotDataUpdate(dataArray: any):void {
         console.log("hello: vik data");
-        //console.log(`HUB: "${this.getHubPath()}" has received "${dataArray.length}" values.`);
-    }*/
+        console.log(`HUB: "${this.getHubPath()}" has received "${dataArray.length}" values.`);
+    }
 }
