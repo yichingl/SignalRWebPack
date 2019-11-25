@@ -6,29 +6,22 @@ export class RsLibraryHub extends RsServerHub {
     }
 
     public configure() {
-        //this.addEvent("SendScenarioLibrary", this.gotScenarios);
-        //this.addEvent("SendLungModelLibrary", this.gotLibraries);
         var thisHub = this;
-        
-        this.connection.on("SendScenarioLibrary", (models: any) => {
-            this.gotScenarios(models, thisHub);
+        this.addEvent("SendLungModelLibrary", (models: any) => {
+            this.gotLibraries(thisHub, models);
         });
-        this.connection.on("SendLungModelLibrary", (models: any) => {
-            console.log("test lung model library!");
+        this.addEvent("SendScenarioLibrary", (models: any) => {
+            this.gotScenarios(thisHub, models);
         });
     }
 
-    gotScenarios(models: any, thisHub: any) {
-        console.log("scenarios");
-        console.log(thisHub.getHubPath());
-        console.log(thisHub.getBaseUrl());
+    gotScenarios(thisHub: any, models: any) {
+        console.log(`HUB: "${thisHub.hubPath}" has received Scenario Library with ${models.length} entries.`);
+    }
+    gotLibraries(thisHub: any, models: any) {
+        console.log(`HUB: "${thisHub.hubPath}" has received Lung Model Library...`);
         console.info(JSON.stringify(models));
     }
-    /*
-    gotLibraries(models: any) {
-        console.log("models");
-        console.info(JSON.stringify(models));
-    }*/
 
     /*update() {
         this.getConnection().invoke("UpdateLML");

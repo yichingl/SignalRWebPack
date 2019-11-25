@@ -12,26 +12,21 @@ export class RsVikHub extends RsServerHub {
     }
 
     public configure() {
-        var self = this;
-
-        this.connection.on("SendVIKConnectionStatus", (status: any) => {
-            console.log("test vik status update!");
+        var thisHub = this;
+        this.addEvent("SendVIKConnectionStatus", (status: any) => {
+            this.gotStatusUpdate(thisHub, status);
         });
-        this.connection.on("SendVIKData", (dataArray: any) => {
-            console.log("test vik data!");
+        this.addEvent("SendVIKData", (dataArray: any) => {
+            this.gotStatusUpdate(thisHub, dataArray);
         });
 
         console.log(`HUB: "${this.getHubPath()}" has been configured.`);
     }
 
-    /*public gotStatusUpdate(status: boolean):void {
-        //testtest
-        console.log("hello: vik status");
-        console.log(`HUB: "${this.hubPath}" has connection status: ${status}.`);
+    gotStatusUpdate(thisHub: any, status: boolean) {
+        console.log(`HUB: "${thisHub.hubPath}" has connection status: ${status}.`);
     }
-
-    public gotDataUpdate(dataArray: any):void {
-        console.log("hello: vik data");
-        console.log(`HUB: "${this.getHubPath()}" has received "${dataArray.length}" values.`);
-    }*/
+    gotDataUpdate(thisHub: any, dataArray: any):void {
+        console.log(`HUB: "${thisHub.getHubPath()}" has received Vik data with "${dataArray.length}" entries.`);
+    }
 }
