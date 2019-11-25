@@ -5,7 +5,7 @@ export class RsLibraryHub extends RsServerHub {
         super(signalUrl, 'library');
     }
 
-    configure() {
+    public configure() {
         this.addEvent("SendScenarioLibrary", this.gotScenarios);
         this.addEvent("SendLungModelLibrary", this.gotLibraries);
     }
