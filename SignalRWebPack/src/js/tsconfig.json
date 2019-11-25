@@ -13,9 +13,6 @@
     ],
     "files": [
         "index.ts",
-        "Hubs/test_RsServerHub.ts",
-        "Hubs/test_RsVikHub.ts",
-        "Hubs/test_RsMainHub.ts",
         "Hubs/RsServerHub.ts",
         "Hubs/RsVikHub.ts",
         "Hubs/RsLibraryHub.ts",

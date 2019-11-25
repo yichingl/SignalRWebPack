@@ -9,9 +9,10 @@
 export class RsVikHub extends RsServerHub {
     constructor(signalUrl: string) {
         super(signalUrl, 'vik');
+        this.configureEvents();
     }
 
-    public configure() {
+    public configureEvents() {
         var thisHub = this;
         this.addEvent("SendVIKConnectionStatus", (status: any) => {
             this.gotStatusUpdate(thisHub, status);
@@ -24,7 +25,7 @@ export class RsVikHub extends RsServerHub {
     }
 
     gotStatusUpdate(thisHub: any, status: boolean) {
-        console.log(`HUB: "${thisHub.hubPath}" has connection status: ${status}.`);
+        console.log(`HUB: "${thisHub.getHubPath()}" has connection status - ${status}.`);
     }
     gotDataUpdate(thisHub: any, dataArray: any):void {
         console.log(`HUB: "${thisHub.getHubPath()}" has received Vik data with "${dataArray.length}" entries.`);

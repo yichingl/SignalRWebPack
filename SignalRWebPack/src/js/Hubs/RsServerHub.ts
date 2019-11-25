@@ -1,24 +1,23 @@
 ﻿import * as signalR from '@aspnet/signalr'
 
 export abstract class RsServerHub {
+    
+    private readonly baseUrl: string;
+    private readonly hubPath: string;
+    private readonly connection: any;
+    private connected: boolean;
 
-    protected connection: any;
-    protected connected: boolean;
-    protected baseUrl: string;
-    protected hubPath: string;
-
-
-    // Public Properties
-    public getConnection() {
+    // Properties
+    protected getConnection() {
         return this.connection;
     }
-    public getConnectionStatus() {
+    protected getConnectionStatus() {
         return this.connected;
     }
-    public getBaseUrl() {
+    protected getBaseUrl() {
         return this.baseUrl;
     }
-    public getHubPath(): string {
+    protected getHubPath(): string {
         // test
         return this.hubPath;
     }
@@ -29,31 +28,29 @@ export abstract class RsServerHub {
         this.baseUrl = signalUrl;
         this.hubPath = hubName;
 
-        console.log(`HUB: building ${this.hubPath} at url ${this.baseUrl}/${this.hubPath}`);
+        console.log(`HUB: building "${this.hubPath}" at url ${this.baseUrl}/${this.hubPath}`);
         this.connection = new signalR.HubConnectionBuilder()
             .withUrl(`${this.baseUrl}/${this.hubPath}`)
             .build();
     }
 
     // Listen for connection events
-    public addEvent(event: string, handler: Function) {
+    protected addEvent(event: string, handler: Function) {
         this.connection.on(event, handler);
     }
 
     // Public Methods
-    public abstract configure(): void;
+    public abstract configureEvents(): void;
     public startConnection() {
-        console.log(`HUB: "${this.hubPath}" is starting its connection...`);
+        console.log(`HUB: "${this.hubPath}" is connecting...`);
         this.connection.start()
-            .then(
-                this._setConnected()
+            .then(() => {
+                console.log(`HUB: "${this.hubPath}" has connected.`);
+                this.connected = true;
+            }
             ).catch(err => {
                 console.error(`HUB: "${this.hubPath}" has failed to connect.`);
             });
-    }
-    private _setConnected() {
-        console.log(`HUB: "${this.hubPath}" has connected.`);
-        this.connected = true;
     }
 }
 

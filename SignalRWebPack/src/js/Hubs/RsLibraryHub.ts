@@ -3,9 +3,10 @@
 export class RsLibraryHub extends RsServerHub {
     constructor(signalUrl: string) {
         super(signalUrl, 'library');
+        this.configureEvents();
     }
 
-    public configure() {
+    public configureEvents() {
         var thisHub = this;
         this.addEvent("SendLungModelLibrary", (models: any) => {
             this.gotLibraries(thisHub, models);
@@ -16,11 +17,11 @@ export class RsLibraryHub extends RsServerHub {
     }
 
     gotScenarios(thisHub: any, models: any) {
-        console.log(`HUB: "${thisHub.hubPath}" has received Scenario Library with ${models.length} entries.`);
+        console.info(`HUB: "${thisHub.getHubPath()}" has received Scenario Library...`);
+        console.info(JSON.stringify(models));
     }
     gotLibraries(thisHub: any, models: any) {
-        console.log(`HUB: "${thisHub.hubPath}" has received Lung Model Library...`);
-        console.info(JSON.stringify(models));
+        console.info(`HUB: "${thisHub.getHubPath()}" has received Lung Model Library with ${models.length} entries.`);
     }
 
     /*update() {
