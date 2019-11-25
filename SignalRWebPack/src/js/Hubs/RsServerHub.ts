@@ -18,11 +18,10 @@ export abstract class RsServerHub {
         return this.baseUrl;
     }
     protected getHubPath(): string {
-        // test
         return this.hubPath;
     }
 
-    // Constructor Methods
+    // Constructor 
     constructor(signalUrl: string, hubName: string) {
         this.connected = false;
         this.baseUrl = signalUrl;
@@ -45,7 +44,7 @@ export abstract class RsServerHub {
         this.startConnection();
     }
     protected abstract configureEvents(): void;
-    protected startConnection() {
+    protected startConnection(): void {
         console.log(`HUB: "${this.hubPath}" is connecting...`);
         this.connection.start()
             .then(() => {

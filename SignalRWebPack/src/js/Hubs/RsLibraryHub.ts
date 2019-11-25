@@ -16,11 +16,11 @@ export class RsLibraryHub extends RsServerHub {
         });
     }
 
-    gotScenarios(thisHub: any, models: any) {
-        console.info(`HUB: "${thisHub.getHubPath()}" has received Scenario Library...`);
-        console.info(JSON.stringify(models));
+    // Event Handlers
+    private gotScenarios(thisHub: any, models: any) {
+        console.info(`HUB: "${thisHub.getHubPath()}" has received Scenario Library - ${JSON.stringify(models)}`);
     }
-    gotLibraries(thisHub: any, models: any) {
+    private gotLibraries(thisHub: any, models: any) {
         console.info(`HUB: "${thisHub.getHubPath()}" has received Lung Model Library with ${models.length} entries.`);
     }
 

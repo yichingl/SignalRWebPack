@@ -24,10 +24,11 @@ export class RsVikHub extends RsServerHub {
         console.log(`HUB: "${this.getHubPath()}" has been configured.`);
     }
 
-    gotStatusUpdate(thisHub: any, status: boolean) {
+    // Event Handlers
+    private gotStatusUpdate(thisHub: any, status: boolean) {
         console.log(`HUB: "${thisHub.getHubPath()}" has connection status - ${status}.`);
     }
-    gotDataUpdate(thisHub: any, dataArray: any):void {
+    private gotDataUpdate(thisHub: any, dataArray: any):void {
         console.log(`HUB: "${thisHub.getHubPath()}" has received Vik data with "${dataArray.length}" entries.`);
     }
 }
