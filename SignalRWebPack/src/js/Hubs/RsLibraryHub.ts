@@ -3,10 +3,10 @@
 export class RsLibraryHub extends RsServerHub {
     constructor(signalUrl: string) {
         super(signalUrl, 'library');
-        this.configureEvents();
+        this.initConnection();
     }
 
-    public configureEvents() {
+    protected configureEvents() {
         var thisHub = this;
         this.addEvent("SendLungModelLibrary", (models: any) => {
             this.gotLibraries(thisHub, models);

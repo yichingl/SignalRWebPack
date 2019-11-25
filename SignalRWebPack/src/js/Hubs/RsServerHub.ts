@@ -39,9 +39,13 @@ export abstract class RsServerHub {
         this.connection.on(event, handler);
     }
 
-    // Public Methods
-    public abstract configureEvents(): void;
-    public startConnection() {
+    // Init Connection Methods
+    protected initConnection(): void {
+        this.configureEvents();
+        this.startConnection();
+    }
+    protected abstract configureEvents(): void;
+    protected startConnection() {
         console.log(`HUB: "${this.hubPath}" is connecting...`);
         this.connection.start()
             .then(() => {

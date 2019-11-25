@@ -9,10 +9,10 @@
 export class RsVikHub extends RsServerHub {
     constructor(signalUrl: string) {
         super(signalUrl, 'vik');
-        this.configureEvents();
+        this.initConnection();
     }
 
-    public configureEvents() {
+    protected configureEvents() {
         var thisHub = this;
         this.addEvent("SendVIKConnectionStatus", (status: any) => {
             this.gotStatusUpdate(thisHub, status);
