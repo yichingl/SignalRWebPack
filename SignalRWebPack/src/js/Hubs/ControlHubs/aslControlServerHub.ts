@@ -1,8 +1,13 @@
 ﻿import { BaseHub } from "../baseHub";
+import { ASLControlUIHub } from "./aslControlUIHub";
 
 export class ASLControlServerHub extends BaseHub {
+
+    public UIConnectionHub;
+
     constructor(signalUrl: string) {
         super(signalUrl, 'aslControl');
+        this.UIConnectionHub = new ASLControlUIHub("");
         this.initConnection();
     }
 
@@ -24,6 +29,7 @@ export class ASLControlServerHub extends BaseHub {
     // EVENT HANDLERS
     private gotASLState(thisHub: any, aslState: string) {
         console.info(`HUB: "${thisHub.getHubPath()}" has state - ${aslState}.`);
+        thisHub.UIConnectionHub.getConnection().invoke("newMessage");
     }
     private gotASLDevice(thisHub: any, aslDevice: string) {
         console.info(`HUB: "${thisHub.getHubPath()}" is using device - ${aslDevice}.`);
