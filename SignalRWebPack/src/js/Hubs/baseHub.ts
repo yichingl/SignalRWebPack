@@ -4,7 +4,7 @@ export abstract class BaseHub {
     
     private readonly baseUrl: string;
     private readonly hubPath: string;
-    private readonly connection: any;
+    public readonly connection: any;
     private connected: boolean;
 
     // Properties
