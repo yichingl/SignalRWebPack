@@ -21,8 +21,8 @@ export class RsLibraryHub extends RsServerHub {
             this.gotActiveLungModel(thisHub, activeLungModel);
         });
     }
-    // TODO: continue migrating library event handlers, and print accordingly
-    // Event Handlers
+
+    // EVENT HANDLERS
     private gotLungModelLibrary(thisHub: any, lungModelLibrary: any) {
         console.info(`HUB: "${thisHub.getHubPath()}" has received Scenario Library with ${lungModelLibrary.length} entries.`);
     }
