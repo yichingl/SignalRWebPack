@@ -8,28 +8,28 @@ export class RsASLControlHub extends RsServerHub {
 
     protected configureEvents() {
         var thisHub = this;
-        this.addEvent("SendASLState", (ASLState: string) => {
-            this.gotASLState(thisHub, ASLState);
+        this.addEvent("SendASLState", (aslState: string) => {
+            this.gotASLState(thisHub, aslState);
         });
-        this.addEvent("SendASLDevice", (ASLDevice: string) => {
-            this.gotASLDevice(thisHub, ASLDevice);
+        this.addEvent("SendASLDevice", (aslDevice: string) => {
+            this.gotASLDevice(thisHub, aslDevice);
         });
-        this.addEvent("SendASLRawData", (ASLRawData: any) => {
-            this.gotASLRawData(thisHub, ASLRawData);
+        this.addEvent("SendASLRawData", (aslRawData: any) => {
+            this.gotASLRawData(thisHub, aslRawData);
         });
 
         console.log(`HUB: "${this.getHubPath()}" has been configured.`);
     }
 
     // Event Handlers
-    private gotASLState(thisHub: any, ASLState: string) {
-        console.info(`HUB: "${thisHub.getHubPath()}" has state - ${ASLState}.`);
+    private gotASLState(thisHub: any, aslState: string) {
+        console.info(`HUB: "${thisHub.getHubPath()}" has state - ${aslState}.`);
     }
-    private gotASLDevice(thisHub: any, ASLDevice: string) {
-        console.info(`HUB: "${thisHub.getHubPath()}" is using device - ${ASLDevice}.`);
+    private gotASLDevice(thisHub: any, aslDevice: string) {
+        console.info(`HUB: "${thisHub.getHubPath()}" is using device - ${aslDevice}.`);
     }
-    private gotASLRawData(thisHub: any, ASLRawData: string) {
-        console.info(`HUB: "${thisHub.getHubPath()}" is using device - ${ASLRawData}.`);
+    private gotASLRawData(thisHub: any, aslRawData: string) {
+        console.info(`HUB: "${thisHub.getHubPath()}" is using device - ${aslRawData}.`);
     }
 
 
