@@ -14,9 +14,10 @@ export class RsVikHub extends RsServerHub {
 
     protected configureEvents() {
         var thisHub = this;
-        this.addEvent("SendVIKConnectionStatus", (status: any) => {
+        this.addEvent("SendVIKConnectionStatus",(status: boolean) => {
             this.gotStatusUpdate(thisHub, status);
         });
+
         this.addEvent("SendVIKData", (dataArray: any) => {
             this.gotStatusUpdate(thisHub, dataArray);
         });

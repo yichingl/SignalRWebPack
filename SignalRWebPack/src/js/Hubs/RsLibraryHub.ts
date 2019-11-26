@@ -9,19 +9,31 @@ export class RsLibraryHub extends RsServerHub {
     protected configureEvents() {
         var thisHub = this;
         this.addEvent("SendLungModelLibrary", (models: any) => {
-            this.gotLibraries(thisHub, models);
+            this.gotLungModelLibrary(thisHub, models);
         });
         this.addEvent("SendScenarioLibrary", (models: any) => {
-            this.gotScenarios(thisHub, models);
+            this.gotScenarioLibrary(thisHub, models);
+        });
+        this.addEvent("SendScenario", (info: any, model: any) => {
+            this.gotScenario(thisHub, model);
+        });
+        this.addEvent("SendActiveLungModel", (model: any) => {
+            this.gotActiveLungModel(thisHub, model);
         });
     }
-
+    // TODO: continue migrating library event handlers, and print accordingly
     // Event Handlers
-    private gotScenarios(thisHub: any, models: any) {
-        console.info(`HUB: "${thisHub.getHubPath()}" has received Scenario Library - ${JSON.stringify(models)}`);
+    private gotLungModelLibrary(thisHub: any, models: any) {
+        console.info(`HUB: "${thisHub.getHubPath()}" has received Scenario Library with ${models.length} entries.`);
     }
-    private gotLibraries(thisHub: any, models: any) {
-        console.info(`HUB: "${thisHub.getHubPath()}" has received Lung Model Library with ${models.length} entries.`);
+    private gotScenarioLibrary(thisHub: any, models: any) {
+        console.info(`HUB: "${thisHub.getHubPath()}" has received Lung Model Library - ${JSON.stringify(models)}`);
+    }
+    private gotScenario(thisHub: any, models: any) {
+        console.info(`HUB: "${thisHub.getHubPath()}" has received Scenario with ${models.length} entries.`);
+    }
+    private gotActiveLungModel(thisHub: any, model: any) {
+        console.info(`HUB: "${thisHub.getHubPath()}" has received Lung Model Library with ${model.length} entries.`);
     }
 
     /*update() {
