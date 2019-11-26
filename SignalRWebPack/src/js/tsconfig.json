@@ -15,6 +15,7 @@
         "index.ts",
         "Hubs/initHubs.ts",
         "Hubs/baseHub.ts",
+        "Hubs/IHasUIHub.ts",
         "Hubs/ControlHubs/aslControlServerHub.ts",
         "Hubs/DataHubs/libraryDataServerHub.ts",
         "Hubs/DataHubs/vikDataServerHub.ts"

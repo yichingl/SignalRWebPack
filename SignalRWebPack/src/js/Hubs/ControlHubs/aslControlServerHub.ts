@@ -1,14 +1,19 @@
 ﻿import { BaseHub } from "../baseHub";
+import { HasUIHub } from "../IHasUIHub";
 import { ASLControlUIHub } from "./aslControlUIHub";
 
-export class ASLControlServerHub extends BaseHub {
+export class ASLControlServerHub extends BaseHub implements HasUIHub {
 
-    public UIConnectionHub;
+    public UIConnectionHub: any;
 
     constructor(signalUrl: string) {
         super(signalUrl, 'aslControl');
-        this.UIConnectionHub = new ASLControlUIHub("");
+        this.initUIConnectionHub();
         this.initConnection();
+    }
+
+    public initUIConnectionHub() {
+        this.UIConnectionHub = new ASLControlUIHub("");
     }
 
     protected configureEvents() {
