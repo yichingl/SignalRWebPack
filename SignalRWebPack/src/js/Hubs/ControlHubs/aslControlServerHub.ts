@@ -1,6 +1,6 @@
-﻿import { RsServerHub } from "./RsServerHub";
+﻿import { BaseHub } from "../baseHub";
 
-export class RsASLControlHub extends RsServerHub {
+export class ASLControlServerHub extends BaseHub {
     constructor(signalUrl: string) {
         super(signalUrl, 'aslControl');
         this.initConnection();

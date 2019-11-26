@@ -1,4 +1,4 @@
-﻿import { RsServerHub } from "./RsServerHub";
+﻿import { BaseHub } from "../baseHub";
 
 // instantiate hub
 // var h = new Hub()
@@ -6,7 +6,7 @@
 // h.configure()
 // h.connect()
 
-export class RsVikHub extends RsServerHub {
+export class VIKDataServerHub extends BaseHub {
     constructor(signalUrl: string) {
         super(signalUrl, 'vik');
         this.initConnection();

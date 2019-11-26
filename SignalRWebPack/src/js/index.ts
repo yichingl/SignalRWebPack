@@ -1,10 +1,10 @@
 ﻿import "../css/main.css";
-import { vikHub } from "./Hubs/RsMainHub";
-import { libraryHub } from "./Hubs/RsMainHub";
-import { ASLControlHub } from "./Hubs/RsMainHub";
+import { vikDataServerHub } from "./Hubs/initHubs";
+import { libraryDataServerHub } from "./Hubs/initHubs";
+import { aslControlServerHub } from "./Hubs/initHubs";
 
 export {
-    vikHub,
-    libraryHub,
-    ASLControlHub
+    vikDataServerHub,
+    libraryDataServerHub,
+    aslControlServerHub
 }

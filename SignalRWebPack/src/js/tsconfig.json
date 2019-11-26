@@ -13,13 +13,11 @@
     ],
     "files": [
         "index.ts",
-
-        "Hubs/RsServerHub.ts",
-        "Hubs/RsASLCOntrolHub.ts",
-        "Hubs/RsLibraryHub.ts",
-        "Hubs/RsVikHub.ts",
-
-        "Hubs/RsMainHub.ts"
+        "Hubs/initHubs.ts",
+        "Hubs/baseHub.ts",
+        "Hubs/ControlHubs/aslControlServerHub.ts",
+        "Hubs/DataHubs/libraryDataServerHub.ts",
+        "Hubs/DataHubs/vikDataServerHub.ts"
     ],
     "compileOnSave": true
 }
