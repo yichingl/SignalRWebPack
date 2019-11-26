@@ -13,9 +13,12 @@
     ],
     "files": [
         "index.ts",
+
         "Hubs/RsServerHub.ts",
-        "Hubs/RsVikHub.ts",
+        "Hubs/RsASLCOntrolHub.ts",
         "Hubs/RsLibraryHub.ts",
+        "Hubs/RsVikHub.ts",
+
         "Hubs/RsMainHub.ts"
     ],
     "compileOnSave": true
