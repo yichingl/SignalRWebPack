@@ -1,11 +1,16 @@
 ﻿import { BaseHub } from "../Base/baseHub";
 
 export class LibraryDataServerHub extends BaseHub {
+
+    private firstTimeScenarioLibrary: boolean = true;
+
+    // CONFIGURE
     constructor(signalUrl: string) {
         super(signalUrl, 'library');
         this.initConnection();
     }
 
+    // INIT METHODS
     protected configureEvents() {
         var thisHub = this;
         this.addEvent("SendLungModelLibrary", (lungModelLibrary: any) => {
@@ -28,6 +33,10 @@ export class LibraryDataServerHub extends BaseHub {
     }
     private gotScenarioLibrary(thisHub: any, scenarioLibrary: any) {
         console.info(`HUB: "${thisHub.getHubPath()}" has received Lung Model Library - ${JSON.stringify(scenarioLibrary)}`);
+        if (thisHub.firstTimeScenarioLibrary) {
+            thisHub.UIConnectionHub.getConnection().invoke("SawFirstTimeScenarioLibrary");
+            thisHub.firstTimeScenarioLibrary = false;
+        }
     }
     private gotScenario(thisHub: any, scenario: any) {
         console.info(`HUB: "${thisHub.getHubPath()}" has received Scenario with ${scenario.length} entries.`);
