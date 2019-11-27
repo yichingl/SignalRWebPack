@@ -33,14 +33,14 @@ export class ASLControlServerHub extends BaseHub implements HasUIHub {
 
     // EVENT HANDLERS
     private gotASLState(thisHub: any, aslState: string) {
-        console.info(`HUB: "${thisHub.getHubPath()}" has state - ${aslState}.`);
-        thisHub.UIConnectionHub.getConnection().invoke("sawASLStatusChange");
+        console.info(`HUB: "${thisHub.getHubPath()}" has state - ${aslState}`);
+        thisHub.UIConnectionHub.getConnection().invoke("sawASLStatusChange", aslState);
     }
     private gotASLDevice(thisHub: any, aslDevice: string) {
-        console.info(`HUB: "${thisHub.getHubPath()}" is using device - ${aslDevice}.`);
+        console.info(`HUB: "${thisHub.getHubPath()}" is using device - ${aslDevice}`);
     }
     private gotASLRawData(thisHub: any, aslRawData: string) {
-        console.info(`HUB: "${thisHub.getHubPath()}" is using device - ${aslRawData}.`);
+        console.info(`HUB: "${thisHub.getHubPath()}" is using device - ${aslRawData}`);
     }
 
     // PUBLIC INVOKE METHODS
