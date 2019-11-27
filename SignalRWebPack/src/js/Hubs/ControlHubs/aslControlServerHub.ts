@@ -56,28 +56,14 @@ export class ASLControlServerHub extends BaseHub implements HasUIHub {
     public setASLDeviceIP(configIPVal: any) {
         this.getConnection().invoke("SetIP", configIPVal);
     }
-    /*public useIP(configIPVal: any) { // when formalizing, separate out UI stuff from invoke
-        //this.getConnection().invoke("SetIP", $('#config-ip').val())
-        //$('#config-id').val("");
-        //$('#config-ip').val("");
-    }*/
 
     // ASL configuration: using ID
     public setASLDeviceID(configIDVal: any) {
         this.getConnection().invoke("SetIdent", configIDVal);
     }
-    /*public useID(configIDVal: any) {
-        this.getConnection().invoke("SetIdent", configIDVal);
-        //this.getConnection().invoke("SetIdent", $('#config-id').val())
-        //$('#config-id').val("");
-        //$('#config-ip').val("");
-    }*/
 
     // ASL configuration: using standalone
     public setASLStandalone() {
         this.getConnection().invoke("SetStandalone");
     }
-    /*public useStandalone() {
-        this.getConnection().invoke("SetStandalone");
-    }*/
 }

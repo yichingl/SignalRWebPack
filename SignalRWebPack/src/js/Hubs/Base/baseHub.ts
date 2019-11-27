@@ -7,7 +7,7 @@ export abstract class BaseHub {
     private readonly connection: any;
     private connected: boolean;
 
-    // Properties
+    // PROPERTIES 
     protected getConnection() {
         return this.connection;
     }
@@ -21,7 +21,7 @@ export abstract class BaseHub {
         return this.hubPath;
     }
 
-    // Constructor 
+    // CONSTRUCTORS 
     constructor(signalUrl: string, hubName: string) {
         this.connected = false;
         this.baseUrl = signalUrl;
@@ -33,12 +33,12 @@ export abstract class BaseHub {
             .build();
     }
 
-    // Listen for connection events
+    // LISTEN FOR EVENTS
     protected addEvent(event: string, handler: Function) {
         this.connection.on(event, handler);
     }
 
-    // Init Connection Methods
+    // INIT CONNECTION
     protected initConnection(): void {
         this.configureEvents();
         this.startConnection();
