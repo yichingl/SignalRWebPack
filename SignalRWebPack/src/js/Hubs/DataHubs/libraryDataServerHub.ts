@@ -36,7 +36,35 @@ export class LibraryDataServerHub extends BaseHub {
         console.info(`HUB: "${thisHub.getHubPath()}" has received Lung Model Library with ${activeLungModel.length} entries.`);
     }
 
-    /*update() {
+    // PUBLIC INVOKE METHODS
+    // Scenario
+    public newScenario() {
+        // Get initial model here (196 default)
+        //startingLungModelSelector.options[startingLungModelSelector.selectedIndex].value
+        this.getConnection().invoke("NewScenario", "196");
+    }
+    public loadScenario(scenarioId) { // rename from rs_loadScenario() to this
+        // todo: loadscenario here
+        this.getConnection().invoke("GetScenario", scenarioId.toString());
+    }
+
+    // Lung Model
+    public updateLML(){ // rename from UpdateForLML() to this
         this.getConnection().invoke("UpdateLML");
-    }*/
+    }
+    public saveLungModel() {
+        var name = window.prompt("Lung Model Name");
+        this.getConnection().invoke("SaveAsLungModel", name, "1");
+    }
+    public loadPatientModel(id) { // rename from LoadPatientModel() to this
+        this.getConnection().invoke("SetLungModel", id.toString(), 0);
+    }
+
+    // Breath Actions
+    public invokeCough() { // rename from rs_cough() to this
+        this.getConnection().invoke("Cough");
+    }
+    public invokeSigh() { // rename from rs_sigh to this
+        this.getConnection().invoke("Sigh");
+    }
 }
