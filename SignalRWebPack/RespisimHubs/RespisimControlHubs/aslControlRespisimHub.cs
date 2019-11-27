@@ -9,5 +9,9 @@ namespace SignalRWebPack.Hubs
         {
             await Clients.All.SendAsync("broadcastASLStatusChange", aslState);
         }
+        public async Task SawASLDeviceChange(string aslDevice)
+        {
+            await Clients.All.SendAsync("broadcastASLDeviceChange", aslDevice);
+        }
     }
 }

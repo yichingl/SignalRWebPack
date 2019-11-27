@@ -38,6 +38,7 @@ export class ASLControlServerHub extends BaseHub implements HasUIHub {
     }
     private gotASLDevice(thisHub: any, aslDevice: string) {
         console.info(`HUB: "${thisHub.getHubPath()}" is using device - ${aslDevice}`);
+        thisHub.UIConnectionHub.getConnection().invoke("sawASLDeviceChange", aslDevice);
     }
     private gotASLRawData(thisHub: any, aslRawData: string) {
         console.info(`HUB: "${thisHub.getHubPath()}" is using device - ${aslRawData}`);

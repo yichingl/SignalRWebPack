@@ -14,18 +14,49 @@ export class ASLControlUIHub extends BaseUIHub {
     protected configureEvents() {
         var thisHub = this;
         this.addEvent("broadcastASLStatusChange", (aslState: string) => {
-            this.gotASLStatusChange(aslState);
+            this.gotASLStatusChange(thisHub, aslState);
+        });
+        this.addEvent("broadcastASLDeviceChange", (aslDevice: string) => {
+            this.gotASLDeviceChange(thisHub, aslDevice);
         });
 
         console.log(`HUB: "${this.getHubPath()}" has been configured.`);
     }
     
     // EVENT HANDLERS
-    private gotASLStatusChange(aslState: string) {
-        console.log(`HUB: "${this.getHubPath()}" has state - ${aslState}`);
+    private gotASLStatusChange(thisHub: any, aslState: string) {
+        console.log(`HUB: "${thisHub.getHubPath()}" has state - ${aslState}`);
+        this.setStatusText(aslState);
+    }
+    private gotASLDeviceChange(thisHub: any, aslDevice: string) {
+        console.log(`HUB: "${thisHub.getHubPath()}" has device - ${aslDevice}`);
+        this.setDeviceText(aslDevice);
     }
 
-    // UI HELPER FUNCTIONS
+    // MAIN UI FUNCTIONS
+    private setDeviceText(aslDevice: string) {
+        if (aslDevice == 'Standalone') {
+            //$('#config-standalone-button').attr("disabled", true);
+            //$('#config-ip-button').attr("disabled", false);
+            //$('#config-id-button').attr("disabled", false);
+            //console.log("in standalone")
+            //document.getElementById('setStandaloneButton').disabled = true;
+            this.setDeviceInfo("ASL Emulation Mode");
+        }
+        else {
+            //document.getElementById('setEthernetButton').disabled = true;
+            this.setDeviceInfo("ASL 5000 #" + aslDevice);
+            //$('#config-standalone-button').attr("disabled", false);
+            if (aslDevice.length == 4) {
+                //$('#config-ip-button').attr("disabled", false);
+                //$('#config-id-button').attr("disabled", true);
+            }
+            else {
+                //$('#config-ip-button').attr("disabled", true);
+                //$('#config-id-button').attr("disabled", false);
+            }
+        }
+    }
     private setStatusText(status) {
         var statusText = status;
         switch (status) {
@@ -66,6 +97,11 @@ export class ASLControlUIHub extends BaseUIHub {
         console.log(statusText);
     }
 
+    // HELPER UI FUNCTIONS
+    private setDeviceInfo(statusText: string) {
+        //$('.device-status').text(statusText);
+        console.log("Device Info: " + statusText);
+    }
 
     // NON-UI HELPER FUNCTIONS
 }
