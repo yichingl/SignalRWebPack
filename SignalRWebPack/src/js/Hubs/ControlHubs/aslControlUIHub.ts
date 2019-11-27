@@ -1,12 +1,16 @@
-﻿import { BaseHub } from "../Base/baseHub";
+﻿import { BaseUIHub } from "../Base/baseUIHub";
 
-export class ASLControlUIHub extends BaseHub {
+export class ASLControlUIHub extends BaseUIHub {
     constructor(signalUrl: string) {
         super(signalUrl, 'aslControlUI');
         this.initConnection();
     }
 
     // INIT METHODS
+    protected initUIElements() {
+        this.setStatusText("Connected to RS Server");
+        //$("#simController").switchClass("fa-pause-circle", "fa-play-circle");
+    }
     protected configureEvents() {
         var thisHub = this;
         this.addEvent("broadcastASLStatusChange", (aslState: string) => {
@@ -16,7 +20,6 @@ export class ASLControlUIHub extends BaseHub {
         console.log(`HUB: "${this.getHubPath()}" has been configured.`);
     }
     
-
     // EVENT HANDLERS
     private gotASLStatusChange(aslState: string) {
         console.log(`HUB: "${this.getHubPath()}" has state - ${aslState}`);
@@ -61,6 +64,7 @@ export class ASLControlUIHub extends BaseHub {
                 break;
         }
         //$('.system-status').text(statusText);
+        console.log(statusText);
     }
 
 
