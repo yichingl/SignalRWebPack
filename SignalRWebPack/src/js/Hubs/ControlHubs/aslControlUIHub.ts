@@ -2,13 +2,6 @@
 
 export class ASLControlUIHub extends BaseUIHub {
 
-    private aslStartedStatus = "UNCONNECTED";
-
-    // PROPERTIES
-    public getASLStartedStatus() {
-        return this.aslStartedStatus;
-    }
-
     // CONSTRUCTORS
     constructor() {
         super("", "aslControlUI");
@@ -35,7 +28,6 @@ export class ASLControlUIHub extends BaseUIHub {
     // EVENT HANDLERS
     private gotASLStatusChange(thisHub: any, aslState: string) {
         console.log(`HUB: "${thisHub.getHubPath()}" has state - ${aslState}`);
-        thisHub.aslStartedStatus = aslState;
         thisHub.setStatusText(aslState);
     }
     private gotASLDeviceChange(thisHub: any, aslDevice: string) {
@@ -67,7 +59,7 @@ export class ASLControlUIHub extends BaseUIHub {
             }
         }
     }
-    private setStatusText(status) {
+    private setStatusText(status: string) {
         var statusText = status;
         switch (status) {
             case "CONNECTED":
