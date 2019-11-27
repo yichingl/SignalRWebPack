@@ -34,7 +34,7 @@ export class ASLControlServerHub extends BaseHub implements HasUIHub {
     // EVENT HANDLERS
     private gotASLState(thisHub: any, aslState: string) {
         console.info(`HUB: "${thisHub.getHubPath()}" has state - ${aslState}.`);
-        thisHub.UIConnectionHub.getConnection().invoke("newMessage");
+        thisHub.UIConnectionHub.getConnection().invoke("sawASLStatusChange");
     }
     private gotASLDevice(thisHub: any, aslDevice: string) {
         console.info(`HUB: "${thisHub.getHubPath()}" is using device - ${aslDevice}.`);
@@ -52,17 +52,13 @@ export class ASLControlServerHub extends BaseHub implements HasUIHub {
         this.getConnection().invoke("Disconnect");
     }
 
-    // ASL configuration: using IP
+    // ASL configuration: using IP, ID, standalone
     public setASLDeviceIP(configIPVal: any) {
         this.getConnection().invoke("SetIP", configIPVal);
     }
-
-    // ASL configuration: using ID
     public setASLDeviceID(configIDVal: any) {
         this.getConnection().invoke("SetIdent", configIDVal);
     }
-
-    // ASL configuration: using standalone
     public setASLStandalone() {
         this.getConnection().invoke("SetStandalone");
     }

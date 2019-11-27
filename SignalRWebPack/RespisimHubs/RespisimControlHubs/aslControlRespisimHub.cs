@@ -5,9 +5,9 @@ namespace SignalRWebPack.Hubs
 {
     public class AslControlRespisimHub : Hub
     {
-        public async Task NewMessage()
+        public async Task SawASLStatusChange ()
         {
-            await Clients.All.SendAsync("messageReceived");
+            await Clients.All.SendAsync("broadcastASLStatusChange");
         }
     }
 }

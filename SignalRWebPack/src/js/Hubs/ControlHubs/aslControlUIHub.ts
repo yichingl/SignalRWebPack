@@ -8,12 +8,16 @@ export class ASLControlUIHub extends BaseHub {
 
     protected configureEvents() {
         var thisHub = this;
-        this.addEvent("messageReceived", () => {
-            console.log("TESTING: got event");
+        this.addEvent("broadcastASLStatusChange", () => {
+            this.gotASLStatusChange();
         });
 
         console.log(`HUB: "${this.getHubPath()}" has been configured.`);
     }
 
     // EVENT HANDLERS
+    private gotASLStatusChange() {
+        console.log("TESTING: got event with state - ");
+
+    }
 }
