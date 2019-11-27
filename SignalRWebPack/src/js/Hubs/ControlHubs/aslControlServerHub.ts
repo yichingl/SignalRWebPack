@@ -13,7 +13,7 @@ export class ASLControlServerHub extends BaseHub implements HasUIHub {
     }
 
     public initUIConnectionHub() {
-        this.UIConnectionHub = new ASLControlUIHub("");
+        this.UIConnectionHub = new ASLControlUIHub();
     }
 
     protected configureEvents() {

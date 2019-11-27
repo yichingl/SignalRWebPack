@@ -1,8 +1,8 @@
 ﻿import { BaseUIHub } from "../Base/baseUIHub";
 
 export class ASLControlUIHub extends BaseUIHub {
-    constructor(signalUrl: string) {
-        super(signalUrl, 'aslControlUI');
+    constructor() {
+        super("", "aslControlUI");
         this.initConnection();
     }
 
@@ -23,7 +23,6 @@ export class ASLControlUIHub extends BaseUIHub {
     // EVENT HANDLERS
     private gotASLStatusChange(aslState: string) {
         console.log(`HUB: "${this.getHubPath()}" has state - ${aslState}`);
-
     }
 
     // UI HELPER FUNCTIONS
@@ -68,5 +67,5 @@ export class ASLControlUIHub extends BaseUIHub {
     }
 
 
-    // NON UI HELPER FUNCTIONS
+    // NON-UI HELPER FUNCTIONS
 }
