@@ -4,18 +4,24 @@ import { ASLControlUIHub } from "./aslControlUIHub";
 
 export class ASLControlServerHub extends BaseHub implements HasUIHub {
 
-    public UIConnectionHub: any;
+    private UIConnectionHub: any;
 
+    // PROPERTIES
+    public getUIConnectionHub() {
+        return this.UIConnectionHub;
+    }
+
+    // CONSTRUCTORS
     constructor(signalUrl: string) {
         super(signalUrl, 'aslControl');
         this.initUIConnectionHub();
         this.initConnection();
     }
 
+    // INIT METHODS
     public initUIConnectionHub() {
         this.UIConnectionHub = new ASLControlUIHub();
     }
-
     protected configureEvents() {
         var thisHub = this;
         this.addEvent("SendASLState", (aslState: string) => {
