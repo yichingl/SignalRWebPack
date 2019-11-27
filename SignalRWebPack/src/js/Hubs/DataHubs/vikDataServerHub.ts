@@ -1,4 +1,4 @@
-﻿import { BaseHub } from "../baseHub";
+﻿import { BaseHub } from "../Base/baseHub";
 
 // instantiate hub
 // var h = new Hub()

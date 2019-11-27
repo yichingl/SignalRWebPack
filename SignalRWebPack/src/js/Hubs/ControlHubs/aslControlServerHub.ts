@@ -1,5 +1,5 @@
-﻿import { BaseHub } from "../baseHub";
-import { HasUIHub } from "../IHasUIHub";
+﻿import { BaseHub } from "../Base/baseHub";
+import { HasUIHub } from "../Base/IHasUIHub";
 import { ASLControlUIHub } from "./aslControlUIHub";
 
 export class ASLControlServerHub extends BaseHub implements HasUIHub {

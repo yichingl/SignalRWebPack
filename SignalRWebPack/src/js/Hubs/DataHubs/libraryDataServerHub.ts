@@ -1,4 +1,4 @@
-﻿import { BaseHub } from "../baseHub";
+﻿import { BaseHub } from "../Base/baseHub";
 
 export class LibraryDataServerHub extends BaseHub {
     constructor(signalUrl: string) {
