@@ -1,4 +1,4 @@
-﻿import { BasicHub } from "../Base/basicHub";
+﻿import { BasicHub } from "../Base/BasicHub";
 import { HasUIHub } from "../Base/IHasUIHub";
 import { BasicUIBroadcastHub } from "../Base/BasicUIBroadcastHub";
 import { ASLControlUIHub } from "./aslControlUIHub";

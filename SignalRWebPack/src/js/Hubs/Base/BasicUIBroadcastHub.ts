@@ -1,4 +1,4 @@
-﻿import { BasicHub } from "./basicHub";
+﻿import { BasicHub } from "./BasicHub";
 
 export class BasicUIBroadcastHub extends BasicHub {
     constructor(hubName: string) {

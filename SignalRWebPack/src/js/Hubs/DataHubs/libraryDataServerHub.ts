@@ -1,4 +1,4 @@
-﻿import { BasicHub } from "../Base/basicHub";
+﻿import { BasicHub } from "../Base/BasicHub";
 
 export class LibraryDataServerHub extends BasicHub {
 
