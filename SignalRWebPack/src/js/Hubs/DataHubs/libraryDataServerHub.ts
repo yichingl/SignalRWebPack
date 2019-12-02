@@ -1,6 +1,6 @@
-﻿import { BaseHub } from "../Base/baseHub";
+﻿import { BasicHub } from "../Base/basicHub";
 
-export class LibraryDataServerHub extends BaseHub {
+export class LibraryDataServerHub extends BasicHub {
 
     private firstTimeScenarioLibrary: boolean = true;
 
@@ -33,10 +33,10 @@ export class LibraryDataServerHub extends BaseHub {
     }
     private gotScenarioLibrary(thisHub: any, scenarioLibrary: any) {
         console.info(`HUB: "${thisHub.getHubPath()}" has received Lung Model Library - ${JSON.stringify(scenarioLibrary)}`);
-        if (thisHub.firstTimeScenarioLibrary) {
+        /*if (thisHub.firstTimeScenarioLibrary) {
             thisHub.UIConnectionHub.getConnection().invoke("SawFirstTimeScenarioLibrary");
             thisHub.firstTimeScenarioLibrary = false;
-        }
+        }*/
     }
     private gotScenario(thisHub: any, scenario: any) {
         console.info(`HUB: "${thisHub.getHubPath()}" has received Scenario with ${scenario.length} entries.`);

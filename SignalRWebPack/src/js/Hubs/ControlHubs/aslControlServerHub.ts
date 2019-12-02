@@ -1,8 +1,8 @@
-﻿import { BaseHub } from "../Base/baseHub";
+﻿import { BasicHub } from "../Base/basicHub";
 import { HasUIHub } from "../Base/IHasUIHub";
 import { ASLControlUIHub } from "./aslControlUIHub";
 
-export class ASLControlServerHub extends BaseHub implements HasUIHub {
+export class ASLControlServerHub extends BasicHub implements HasUIHub {
 
     private UIConnectionHub: any;
     private aslState = "UNCONNECTED"; 

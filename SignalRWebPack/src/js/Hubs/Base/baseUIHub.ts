@@ -1,6 +1,6 @@
-﻿import { BaseHub } from "../Base/baseHub";
+﻿import { BasicHub } from "./basicHub";
 
-export abstract class BaseUIHub extends BaseHub {
+export abstract class BaseUIHub extends BasicHub {
     constructor(signalUrl: string, baseUrl: string) {
         super(signalUrl, baseUrl);
         this.initUIElements();

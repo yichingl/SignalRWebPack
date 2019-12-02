@@ -14,7 +14,7 @@
     "files": [
         "index.ts",
         "Hubs/initHubs.ts",
-        "Hubs/Base/baseHub.ts",
+        "Hubs/Base/BasicHub.ts",
         "Hubs/Base/IHasUIHub.ts",
         "Hubs/ControlHubs/aslControlServerHub.ts",
         "Hubs/DataHubs/libraryDataServerHub.ts",
