@@ -2,7 +2,7 @@
 
 export abstract class BaseUIHub extends BasicHub {
     constructor(signalUrl: string, baseUrl: string) {
-        super(signalUrl, baseUrl);
+        super(signalUrl, `${baseUrl}UI`);
         this.initUIElements();
     }
     protected abstract initUIElements();

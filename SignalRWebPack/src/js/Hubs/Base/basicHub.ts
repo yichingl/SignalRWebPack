@@ -1,6 +1,6 @@
 ﻿import * as signalR from '@aspnet/signalr'
 
-export abstract class BasicHub {
+export class BasicHub {
     
     private readonly baseUrl: string;
     private readonly hubPath: string;
@@ -43,7 +43,9 @@ export abstract class BasicHub {
         this.configureEvents();
         this.startConnection();
     }
-    protected abstract configureEvents(): void;
+    protected configureEvents(): void {
+        console.log(`HUB: "${this.getHubPath()}" has been configured.`);
+    }
     protected startConnection(): void {
         console.log(`HUB: "${this.hubPath}" is connecting...`);
         this.connection.start()

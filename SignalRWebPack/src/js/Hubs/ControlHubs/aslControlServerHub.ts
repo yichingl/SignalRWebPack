@@ -1,16 +1,15 @@
 ﻿import { BasicHub } from "../Base/basicHub";
 import { HasUIHub } from "../Base/IHasUIHub";
+import { BaseUIBroadcastHub } from "../Base/BaseUIBroadcastHub";
 import { ASLControlUIHub } from "./aslControlUIHub";
 
 export class ASLControlServerHub extends BasicHub implements HasUIHub {
 
-    private UIConnectionHub: any;
+    private UISenderHub: any;
+    private UIReceiveHub: any;
     private aslState = "UNCONNECTED"; 
 
     // PROPERTIES
-    public getUIConnectionHub() {
-        return this.UIConnectionHub;
-    }
     public getASLState() { // renamed aslStartedStatus => getASLState()
         return this.aslState;
     }
@@ -18,13 +17,17 @@ export class ASLControlServerHub extends BasicHub implements HasUIHub {
     // CONSTRUCTORS
     constructor(signalUrl: string) {
         super(signalUrl, 'aslControl');
-        this.initUIConnectionHub();
+        this.initUISenderHub();
+        this.initUIReceiverHub();
         this.initConnection();
     }
 
     // INIT METHODS
-    public initUIConnectionHub() {
-        this.UIConnectionHub = new ASLControlUIHub();
+    public initUISenderHub() {
+        this.UISenderHub = new BaseUIBroadcastHub(this.getHubPath());
+    }
+    public initUIReceiverHub() {
+        this.UIReceiveHub = new ASLControlUIHub();
     }
     protected configureEvents() {
         var thisHub = this;
@@ -34,23 +37,23 @@ export class ASLControlServerHub extends BasicHub implements HasUIHub {
         this.addEvent("SendASLDevice", (aslDevice: string) => {
             this.gotASLDevice(thisHub, aslDevice);
         });
+
         this.addEvent("SendASLRawData", (aslRawData: any) => {
             this.gotASLRawData(thisHub, aslRawData);
         });
-
-        console.log(`HUB: "${this.getHubPath()}" has been configured.`);
+        super.configureEvents();
     }
 
     // EVENT HANDLERS
     private gotASLState(thisHub: any, aslState: string) {
         console.info(`HUB: "${thisHub.getHubPath()}" has state - ${aslState}`);
-        thisHub.UIConnectionHub.getConnection().invoke("sawASLStatusChange", aslState);
+        thisHub.UISenderHub.getConnection().invoke("sawASLStatusChange", aslState);
 
         thisHub.aslState = aslState;
     }
     private gotASLDevice(thisHub: any, aslDevice: string) {
         console.info(`HUB: "${thisHub.getHubPath()}" is using device - ${aslDevice}`);
-        thisHub.UIConnectionHub.getConnection().invoke("sawASLDeviceChange", aslDevice);
+        thisHub.UISenderHub.getConnection().invoke("sawASLDeviceChange", aslDevice);
     }
     private gotASLRawData(thisHub: any, aslRawData: string) {
         console.info(`HUB: "${thisHub.getHubPath()}" is using device - ${aslRawData}`);
