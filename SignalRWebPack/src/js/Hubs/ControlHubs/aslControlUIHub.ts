@@ -3,19 +3,16 @@
 export class ASLControlUIListenHub extends BaseUIListenHub {
 
     // CONSTRUCTORS
-    // both, connect to same URL
     constructor() {
         super("", "aslControl");
         this.initConnection();
     }
 
     // INIT METHODS
-    // ui only
     protected initUIElements() {
         this.setStatusText("Connected to RS Server");
         //$("#simController").switchClass("fa-pause-circle", "fa-play-circle");
     }
-    // broadcast only
     protected configureEvents() {
         var thisHub = this;
         this.addEvent("broadcastASLStatusChange", (aslState: string) => {
@@ -29,7 +26,6 @@ export class ASLControlUIListenHub extends BaseUIListenHub {
     }
     
     // EVENT HANDLERS
-    // listen only
     private gotASLStatusChange(thisHub: any, aslState: string) {
         console.log(`HUB: "${thisHub.getHubPath()}" has state - ${aslState}`);
         thisHub.setStatusText(aslState);
@@ -40,7 +36,6 @@ export class ASLControlUIListenHub extends BaseUIListenHub {
     }
 
 
-    // listen only
     // MAIN UI FUNCTIONS
     private setDeviceText(aslDevice: string) {
         if (aslDevice == 'Standalone') {
