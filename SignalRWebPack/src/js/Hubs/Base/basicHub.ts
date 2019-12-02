@@ -1,6 +1,6 @@
 ﻿import * as signalR from '@aspnet/signalr'
 
-export class BasicHub {
+export abstract class BasicHub {
     
     private readonly baseUrl: string;
     private readonly hubPath: string;
@@ -33,12 +33,12 @@ export class BasicHub {
             .build();
     }
 
-    // LISTEN FOR EVENTS
+    // LISTEN FOR EVENTS (add events in children classes)
     protected addEvent(event: string, handler: Function) {
         this.connection.on(event, handler);
     }
 
-    // INIT CONNECTION
+    // INIT CONNECTION (for children classes)
     protected initConnection(): void {
         this.configureEvents();
         this.startConnection();

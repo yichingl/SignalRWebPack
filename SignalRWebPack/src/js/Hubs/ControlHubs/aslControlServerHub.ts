@@ -1,7 +1,7 @@
 ﻿import { BasicHub } from "../Base/BasicHub";
 import { HasUIHub } from "../Base/IHasUIHub";
 import { BasicUIBroadcastHub } from "../Base/BasicUIBroadcastHub";
-import { ASLControlUIListenHub } from "./ASLControlUIHub";
+import { ASLControlUIListenHub } from "./ASLControlUIListenHub";
 
 export class ASLControlServerHub extends BasicHub implements HasUIHub {
 
@@ -17,12 +17,15 @@ export class ASLControlServerHub extends BasicHub implements HasUIHub {
     // CONSTRUCTORS
     constructor(signalUrl: string) {
         super(signalUrl, 'aslControl');
-        this.initUIBroadcastHub();
-        this.initUIListenHub();
         this.initConnection();
     }
 
     // INIT METHODS
+    protected initConnection(): void {
+        super.initConnection();
+        this.initUIBroadcastHub();
+        this.initUIListenHub();
+    }
     public initUIBroadcastHub() {
         this.UISenderHub = new BasicUIBroadcastHub(this.getHubPath());
     }

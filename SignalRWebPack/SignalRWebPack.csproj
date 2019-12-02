@@ -9,7 +9,7 @@
     <None Remove="src\js\Hubs\ASLControl_serverHub.ts" />
     <None Remove="src\js\Hubs\Base\BaseUIListenHub.ts" />
     <None Remove="src\js\Hubs\Base\BasicUIBroadcastHub.ts" />
-    <None Remove="src\js\Hubs\ControlHubs\aslControlUIHub.ts" />
+    <None Remove="src\js\Hubs\ControlHubs\ASLControlUILIstenHub.ts" />
     <None Remove="src\js\Hubs\IHasUIHub.ts" />
     <None Remove="src\js\test.ts" />
   </ItemGroup>
