@@ -5,8 +5,8 @@ import { ASLControlUIListenHub } from "./ASLControlUIListenHub";
 
 export class ASLControlServerHub extends BaseHub implements HasUIHub {
 
-    private UISenderHub: any;
-    private UIReceiveHub: any;
+    private UIBroadcastHub: any;
+    private UIListenHub: any;
     private aslState = "UNCONNECTED"; 
 
     // PROPERTIES
@@ -27,10 +27,10 @@ export class ASLControlServerHub extends BaseHub implements HasUIHub {
         this.initUIListenHub();
     }
     public initUIBroadcastHub() {
-        this.UISenderHub = new BasicUIBroadcastHub(this.getHubPath());
+        this.UIBroadcastHub = new BasicUIBroadcastHub(this.getHubPath());
     }
     public initUIListenHub() {
-        this.UIReceiveHub = new ASLControlUIListenHub();
+        this.UIListenHub = new ASLControlUIListenHub();
     }
     protected configureEvents() {
         var thisHub = this;
@@ -50,13 +50,13 @@ export class ASLControlServerHub extends BaseHub implements HasUIHub {
     // EVENT HANDLERS
     private gotASLState(thisHub: any, aslState: string) {
         console.info(`HUB: "${thisHub.getHubPath()}" has state - ${aslState}`);
-        thisHub.UISenderHub.getConnection().invoke("sawASLStatusChange", aslState);
+        thisHub.UIBroadcastHub.getConnection().invoke("sawASLStatusChange", aslState);
 
         thisHub.aslState = aslState;
     }
     private gotASLDevice(thisHub: any, aslDevice: string) {
         console.info(`HUB: "${thisHub.getHubPath()}" is using device - ${aslDevice}`);
-        thisHub.UISenderHub.getConnection().invoke("sawASLDeviceChange", aslDevice);
+        thisHub.UIBroadcastHub.getConnection().invoke("sawASLDeviceChange", aslDevice);
     }
     private gotASLRawData(thisHub: any, aslRawData: string) {
         console.info(`HUB: "${thisHub.getHubPath()}" is using device - ${aslRawData}`);

@@ -5,8 +5,8 @@ import { LibraryDataUIListenHub } from "./LibraryDataUIListenHub";
 
 export class LibraryDataServerHub extends BaseHub {
 
-    private UISenderHub: any;
-    private UIReceiveHub: any;
+    private UIBroadcastHub: any;
+    private UIListenHub: any;
     private firstTimeScenarioLibrary: boolean = true;
 
     // CONFIGURE
@@ -22,10 +22,10 @@ export class LibraryDataServerHub extends BaseHub {
         this.initUIListenHub();
     }
     public initUIBroadcastHub() {
-        this.UISenderHub = new BasicUIBroadcastHub(this.getHubPath());
+        this.UIBroadcastHub = new BasicUIBroadcastHub(this.getHubPath());
     }
     public initUIListenHub() {
-        this.UIReceiveHub = new LibraryDataUIListenHub();
+        this.UIListenHub = new LibraryDataUIListenHub();
     }
     protected configureEvents() {
         var thisHub = this;
@@ -49,10 +49,10 @@ export class LibraryDataServerHub extends BaseHub {
     }
     private gotScenarioLibrary(thisHub: any, scenarioLibrary: any) {
         console.info(`HUB: "${thisHub.getHubPath()}" has received Lung Model Library - ${JSON.stringify(scenarioLibrary)}`);
-        /*if (thisHub.firstTimeScenarioLibrary) {
-            thisHub.UIConnectionHub.getConnection().invoke("SawFirstTimeScenarioLibrary");
+        if (thisHub.firstTimeScenarioLibrary) {
+            thisHub.UIBroadcastHub.getConnection().invoke("SawFirstTimeScenarioLibrary");
             thisHub.firstTimeScenarioLibrary = false;
-        }*/
+        }
     }
     private gotScenario(thisHub: any, scenario: any) {
         console.info(`HUB: "${thisHub.getHubPath()}" has received Scenario with ${scenario.length} entries.`);
