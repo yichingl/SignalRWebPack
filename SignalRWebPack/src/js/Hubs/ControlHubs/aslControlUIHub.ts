@@ -1,6 +1,6 @@
 ﻿import { BaseUIListenHub } from "../Base/BaseUIListenHub";
 
-export class ASLControlUIHub extends BaseUIListenHub {
+export class ASLControlUIListenHub extends BaseUIListenHub {
 
     // CONSTRUCTORS
     // both, connect to same URL

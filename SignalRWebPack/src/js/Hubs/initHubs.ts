@@ -1,8 +1,8 @@
 ﻿
-import { ASLControlServerHub } from "./ControlHubs/aslControlServerHub";
+import { ASLControlServerHub } from "./ControlHubs/ASLControlServerHub";
 
-import { VIKDataServerHub } from "./DataHubs/vikDataServerHub";
-import { LibraryDataServerHub } from "./DataHubs/libraryDataServerHub";
+import { VIKDataServerHub } from "./DataHubs/VIKDataServerHub";
+import { LibraryDataServerHub } from "./DataHubs/LibraryDataServerHub";
 
 let RESPISIM_ROOT = "";
 let SERVER_ROOT = "http://localhost:5003";

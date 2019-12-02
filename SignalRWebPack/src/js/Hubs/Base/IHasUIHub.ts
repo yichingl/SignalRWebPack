@@ -1,5 +1,5 @@
 ﻿
 export interface HasUIHub {
-    initUISenderHub();
-    initUIReceiverHub();
+    initUIBroadcastHub();
+    initUIListenHub();
 }
