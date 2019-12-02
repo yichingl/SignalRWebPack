@@ -1,7 +1,7 @@
 ﻿import { BaseHub } from "../Base/BaseHub";
 import { HasUIHub } from "../Base/IHasUIHub";
 import { BasicUIBroadcastHub } from "../Base/BasicUIBroadcastHub";
-import { VitalsDataUIListenHub } from "./VitalsDataUIListenHub";
+import { VitalsDataUIListenHub } from "../UIHubs/VitalsDataUIListenHub";
 
 export class VitalsDataServerHub extends BaseHub implements HasUIHub {
 

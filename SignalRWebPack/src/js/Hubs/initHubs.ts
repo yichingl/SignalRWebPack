@@ -1,9 +1,9 @@
 ﻿
-import { ASLControlServerHub } from "./ControlHubs/ASLControlServerHub";
+import { ASLControlServerHub } from "./ServerHubs/ASLControlServerHub";
 
-import { VIKDataServerHub } from "./DataHubs/VIKDataServerHub";
-import { VitalsDataServerHub } from "./DataHubs/vitalsDataServerHub";
-import { LibraryDataServerHub } from "./DataHubs/LibraryDataServerHub";
+import { VIKDataServerHub } from "./ServerHubs/VIKDataServerHub";
+import { VitalsDataServerHub } from "./ServerHubs/vitalsDataServerHub";
+import { LibraryDataServerHub } from "./ServerHubs/LibraryDataServerHub";
 
 let SERVER_ROOT = "http://localhost:5003";
 
