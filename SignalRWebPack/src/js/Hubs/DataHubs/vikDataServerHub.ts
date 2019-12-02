@@ -1,11 +1,5 @@
 ﻿import { BaseHub } from "../Base/BaseHub";
 
-// instantiate hub
-// var h = new Hub()
-// >> allow for that to return
-// h.configure()
-// h.connect()
-
 export class VIKDataServerHub extends BaseHub {
     constructor(signalUrl: string) {
         super(signalUrl, 'vik');
