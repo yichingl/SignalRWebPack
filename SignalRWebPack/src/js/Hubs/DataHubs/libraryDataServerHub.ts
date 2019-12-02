@@ -1,7 +1,12 @@
 ﻿import { BaseHub } from "../Base/BaseHub";
+import { HasUIHub } from "../Base/IHasUIHub";
+import { BasicUIBroadcastHub } from "../Base/BasicUIBroadcastHub";
+import { LibraryDataUIListenHub } from "./LibraryDataUIListenHub";
 
 export class LibraryDataServerHub extends BaseHub {
 
+    private UISenderHub: any;
+    private UIReceiveHub: any;
     private firstTimeScenarioLibrary: boolean = true;
 
     // CONFIGURE
@@ -11,6 +16,17 @@ export class LibraryDataServerHub extends BaseHub {
     }
 
     // INIT METHODS
+    protected initConnection(): void {
+        super.initConnection();
+        this.initUIBroadcastHub();
+        this.initUIListenHub();
+    }
+    public initUIBroadcastHub() {
+        this.UISenderHub = new BasicUIBroadcastHub(this.getHubPath());
+    }
+    public initUIListenHub() {
+        this.UIReceiveHub = new LibraryDataUIListenHub();
+    }
     protected configureEvents() {
         var thisHub = this;
         this.addEvent("SendLungModelLibrary", (lungModelLibrary: any) => {

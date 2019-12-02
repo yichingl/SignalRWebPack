@@ -10,6 +10,7 @@
     <None Remove="src\js\Hubs\Base\BaseUIListenHub.ts" />
     <None Remove="src\js\Hubs\Base\BasicUIBroadcastHub.ts" />
     <None Remove="src\js\Hubs\ControlHubs\ASLControlUILIstenHub.ts" />
+    <None Remove="src\js\Hubs\DataHubs\LibraryDataUILIstenHub.ts" />
     <None Remove="src\js\Hubs\IHasUIHub.ts" />
     <None Remove="src\js\test.ts" />
   </ItemGroup>

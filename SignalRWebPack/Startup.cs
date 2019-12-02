@@ -36,7 +36,7 @@ namespace SignalRWebPack
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapHub<AslControlRespisimHub>("/aslControlUI");
-                endpoints.MapHub<LibraryDataRespisimHub>("/libraryDataUI");
+                endpoints.MapHub<LibraryDataRespisimHub>("/libraryUI");
             });
         }
     }
