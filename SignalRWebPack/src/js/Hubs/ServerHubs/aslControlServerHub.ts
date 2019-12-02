@@ -44,7 +44,6 @@ export class ASLControlServerHub extends BaseHub implements HasUIHub {
         this.addEvent("SendASLRawData", (aslRawData: any) => {
             this.gotASLRawData(thisHub, aslRawData);
         });
-        super.configureEvents();
     }
 
     // EVENT HANDLERS

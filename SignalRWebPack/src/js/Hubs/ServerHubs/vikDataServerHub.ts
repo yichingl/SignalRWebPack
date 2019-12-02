@@ -14,8 +14,6 @@ export class VIKDataServerHub extends BaseHub {
         this.addEvent("SendVIKData", (vikData: any) => {
             this.gotVIKData(thisHub, vikData);
         });
-
-        console.log(`HUB: "${this.getHubPath()}" has been configured.`);
     }
 
     // EVENT HANDLERS

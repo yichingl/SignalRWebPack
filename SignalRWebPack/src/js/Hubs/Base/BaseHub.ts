@@ -43,9 +43,7 @@ export abstract class BaseHub {
         this.configureEvents();
         this.startConnection();
     }
-    protected configureEvents(): void {
-        console.log(`HUB: "${this.getHubPath()}" has been configured.`);
-    }
+    protected abstract configureEvents(): void;
     protected startConnection(): void {
         console.log(`HUB: "${this.hubPath}" is connecting...`);
         this.connection.start()

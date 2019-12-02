@@ -10,7 +10,6 @@ export class ASLControlUIListenHub extends BaseUIListenHub {
 
     // INIT METHODS
     protected initUIElements() {
-        this.setStatusText("Connected to RS Server");
         //$("#simController").switchClass("fa-pause-circle", "fa-play-circle");
     }
     protected configureEvents() {
@@ -21,8 +20,6 @@ export class ASLControlUIListenHub extends BaseUIListenHub {
         this.addEvent("broadcastASLDeviceChange", (aslDevice: string) => {
             this.gotASLDeviceChange(thisHub, aslDevice);
         });
-
-        console.log(`HUB: "${this.getHubPath()}" has been configured.`);
     }
     
     // EVENT HANDLERS

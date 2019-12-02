@@ -43,8 +43,6 @@ export class VitalsDataServerHub extends BaseHub implements HasUIHub {
         this.addEvent("SendCurrentInvestigations", (currentInvestigations: any) => {
             this.gotCurrentInvestigations(thisHub, currentInvestigations);
         });
-
-        console.log(`HUB: "${this.getHubPath()}" has been configured.`);
     }
 
     // EVENT HANDLERS

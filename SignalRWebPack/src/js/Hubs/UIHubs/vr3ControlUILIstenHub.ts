@@ -1,10 +1,9 @@
 ﻿import { BaseUIListenHub } from "../Base/BaseUIListenHub";
 
-export class VitalsDataUIListenHub extends BaseUIListenHub {
-
+export class VR3ControlUIListenHub extends BaseUIListenHub {
     // CONSTRUCTORS
     constructor() {
-        super("", "vitals");
+        super("", "vr3");
         this.initConnection();
     }
 
@@ -16,5 +15,4 @@ export class VitalsDataUIListenHub extends BaseUIListenHub {
     }
 
     // EVENT HANDLERS
-
 }

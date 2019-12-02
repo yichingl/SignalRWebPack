@@ -5,4 +5,7 @@ export class BasicUIBroadcastHub extends BaseHub {
         super("", `${hubName}UI`);
         this.initConnection();
     }
+    protected configureEvents() {
+           
+    };
 }

@@ -20,8 +20,6 @@ export class LibraryDataUIListenHub extends BaseUIListenHub {
         this.addEvent("broadcastFirstTimeScenarioLibrary", (scenarioLibrary: string) => {
             this.gotFirstTimeScenarioLibrary(thisHub, JSON.parse(scenarioLibrary));
         })
-
-        console.log(`HUB: "${this.getHubPath()}" has been configured.`);
     }
 
     // EVENT HANDLERS
