@@ -1,6 +1,6 @@
-﻿import { BasicHub } from "../Base/BasicHub";
+﻿import { BaseHub } from "../Base/BaseHub";
 
-export class LibraryDataServerHub extends BasicHub {
+export class LibraryDataServerHub extends BaseHub {
 
     private firstTimeScenarioLibrary: boolean = true;
 

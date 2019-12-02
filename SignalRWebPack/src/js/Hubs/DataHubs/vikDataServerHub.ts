@@ -1,4 +1,4 @@
-﻿import { BasicHub } from "../Base/BasicHub";
+﻿import { BaseHub } from "../Base/BaseHub";
 
 // instantiate hub
 // var h = new Hub()
@@ -6,7 +6,7 @@
 // h.configure()
 // h.connect()
 
-export class VIKDataServerHub extends BasicHub {
+export class VIKDataServerHub extends BaseHub {
     constructor(signalUrl: string) {
         super(signalUrl, 'vik');
         this.initConnection();

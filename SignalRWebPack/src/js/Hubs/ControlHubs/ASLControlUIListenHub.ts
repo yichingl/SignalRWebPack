@@ -64,34 +64,34 @@ export class ASLControlUIListenHub extends BaseUIListenHub {
         var statusText = status;
         switch (status) {
             case "CONNECTED":
-                statusText = "Connected";
+                statusText = "ASLControl: Connected";
                 //$("#simController").switchClass("fa-pause-circle", "fa-play-circle");
                 //$(".spin-on-status").removeClass("fa-spin");
                 break;
             case "UNCONNECTED":
-                statusText = "Not Connected";
+                statusText = "ASLControl: Not Connected";
                 //$("#simController").switchClass("fa-pause-circle", "fa-play-circle");
                 //$(".spin-on-status").removeClass("fa-spin");
                 break;
             case "SIMULATING":
-                statusText = "Running Simulation";
+                statusText = "ASLControl: Running Simulation";
                 //$("#simController").switchClass("fa-play-circle", "fa-pause-circle");
                 //$(".spin-on-status").removeClass("fa-spin");
                 //$(".spin-on-status").addClass("fa-spin");
                 break;
             case "SIMULATIONSTARTED":
-                statusText = "Simulation Started";
+                statusText = "ASLControl: Simulation Started";
                 //$("#simController").switchClass("fa-play-circle", "fa-pause-circle");
                 //$(".spin-on-status").removeClass("fa-spin");
                 //$(".spin-on-status").addClass("fa-spin");
                 break;
             case "INITIALIZESIMULATION":
-                statusText = "Initializing...";
+                statusText = "ASLControl: Initializing...";
                 //$("#simController").switchClass("fa-pause-circle", "fa-play-circle");
                 //$(".spin-on-status").removeClass("fa-spin");
                 break;
             case "STOPSIMULATION":
-                statusText = "Stopping...";
+                statusText = "ASLControl: Stopping...";
                 //$("#simController").switchClass("fa-pause-circle", "fa-play-circle");
                 //$(".spin-on-status").removeClass("fa-spin");
                 break;

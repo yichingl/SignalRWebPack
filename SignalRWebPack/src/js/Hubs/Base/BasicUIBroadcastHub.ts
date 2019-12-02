@@ -1,6 +1,6 @@
-﻿import { BasicHub } from "./BasicHub";
+﻿import { BaseHub } from "./BaseHub";
 
-export class BasicUIBroadcastHub extends BasicHub {
+export class BasicUIBroadcastHub extends BaseHub {
     constructor(hubName: string) {
         super("", `${hubName}UI`);
         this.initConnection();

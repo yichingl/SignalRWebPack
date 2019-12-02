@@ -1,6 +1,6 @@
-﻿import { BasicHub } from "./BasicHub";
+﻿import { BaseHub } from "./BaseHub";
 
-export abstract class BaseUIListenHub extends BasicHub {
+export abstract class BaseUIListenHub extends BaseHub {
     constructor(signalUrl: string, baseUrl: string) {
         super(signalUrl, `${baseUrl}UI`);
     }
