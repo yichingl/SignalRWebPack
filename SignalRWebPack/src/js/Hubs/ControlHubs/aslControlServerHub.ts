@@ -1,6 +1,6 @@
 ﻿import { BasicHub } from "../Base/basicHub";
 import { HasUIHub } from "../Base/IHasUIHub";
-import { BaseUIBroadcastHub } from "../Base/BaseUIBroadcastHub";
+import { BasicUIBroadcastHub } from "../Base/BasicUIBroadcastHub";
 import { ASLControlUIHub } from "./aslControlUIHub";
 
 export class ASLControlServerHub extends BasicHub implements HasUIHub {
@@ -24,7 +24,7 @@ export class ASLControlServerHub extends BasicHub implements HasUIHub {
 
     // INIT METHODS
     public initUISenderHub() {
-        this.UISenderHub = new BaseUIBroadcastHub(this.getHubPath());
+        this.UISenderHub = new BasicUIBroadcastHub(this.getHubPath());
     }
     public initUIReceiverHub() {
         this.UIReceiveHub = new ASLControlUIHub();

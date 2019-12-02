@@ -7,8 +7,8 @@
   <ItemGroup>
     <None Remove="src\index.ts" />
     <None Remove="src\js\Hubs\ASLControl_serverHub.ts" />
-    <None Remove="src\js\Hubs\Base\BaseUIBroadcastHub.ts" />
     <None Remove="src\js\Hubs\Base\baseUIHub.ts" />
+    <None Remove="src\js\Hubs\Base\BasicUIBroadcastHub.ts" />
     <None Remove="src\js\Hubs\ControlHubs\aslControlUIHub.ts" />
     <None Remove="src\js\Hubs\IHasUIHub.ts" />
     <None Remove="src\js\test.ts" />
