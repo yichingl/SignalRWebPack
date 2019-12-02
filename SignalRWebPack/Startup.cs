@@ -35,7 +35,8 @@ namespace SignalRWebPack
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapHub<ChatHub>("/hub/fakevik");
+                endpoints.MapHub<AslControlRespisimHub>("/aslControlUI");
+                endpoints.MapHub<LibraryDataRespisimHub>("/libraryDataUI");
             });
         }
     }

@@ -1,13 +1,13 @@
 ﻿import * as signalR from '@aspnet/signalr'
 
-export abstract class RsServerHub {
+export abstract class BaseHub {
     
     private readonly baseUrl: string;
     private readonly hubPath: string;
     private readonly connection: any;
     private connected: boolean;
 
-    // Properties
+    // PROPERTIES 
     protected getConnection() {
         return this.connection;
     }
@@ -21,7 +21,7 @@ export abstract class RsServerHub {
         return this.hubPath;
     }
 
-    // Constructor 
+    // CONSTRUCTORS 
     constructor(signalUrl: string, hubName: string) {
         this.connected = false;
         this.baseUrl = signalUrl;
@@ -33,17 +33,19 @@ export abstract class RsServerHub {
             .build();
     }
 
-    // Listen for connection events
+    // LISTEN FOR EVENTS (add events in children classes)
     protected addEvent(event: string, handler: Function) {
         this.connection.on(event, handler);
     }
 
-    // Init Connection Methods
+    // INIT CONNECTION (for children classes)
     protected initConnection(): void {
         this.configureEvents();
         this.startConnection();
     }
-    protected abstract configureEvents(): void;
+    protected configureEvents(): void {
+        console.log(`HUB: "${this.getHubPath()}" has been configured.`);
+    }
     protected startConnection(): void {
         console.log(`HUB: "${this.hubPath}" is connecting...`);
         this.connection.start()

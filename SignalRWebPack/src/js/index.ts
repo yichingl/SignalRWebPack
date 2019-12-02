@@ -1,9 +1,11 @@
 ﻿import "../css/main.css";
-import { vikHub } from "./Hubs/RsMainHub";
-import { libraryHub } from "./Hubs/RsMainHub";
+import { aslControlServerHub } from "./Hubs/initHubs";
 
-console.log(1);
+import { vikDataServerHub } from "./Hubs/initHubs";
+import { libraryDataServerHub } from "./Hubs/initHubs";
+
 export {
-    vikHub,
-    libraryHub
+    aslControlServerHub,
+    vikDataServerHub,
+    libraryDataServerHub,
 }

@@ -11,12 +11,5 @@
         "node_modules",
         "wwwroot"
     ],
-    "files": [
-        "index.ts",
-        "Hubs/RsServerHub.ts",
-        "Hubs/RsVikHub.ts",
-        "Hubs/RsLibraryHub.ts",
-        "Hubs/RsMainHub.ts"
-    ],
     "compileOnSave": true
 }
