@@ -9,7 +9,7 @@ export class LibraryDataServerHub extends BaseHub {
     private UIListenHub: any;
     private firstTimeScenarioLibrary: boolean = true;
 
-    // CONFIGURE
+    // CONSTRUCTORS
     constructor(signalUrl: string) {
         super(signalUrl, 'library');
         this.initConnection();
@@ -46,11 +46,12 @@ export class LibraryDataServerHub extends BaseHub {
     // EVENT HANDLERS
     private gotLungModelLibrary(thisHub: any, lungModelLibrary: any) {
         console.info(`HUB: "${thisHub.getHubPath()}" has received Scenario Library with ${lungModelLibrary.length} entries.`);
+        thisHub.UIBroadcastHub.getConnection().invoke("SawLungModelLibrary", JSON.stringify(lungModelLibrary));
     }
     private gotScenarioLibrary(thisHub: any, scenarioLibrary: any) {
         console.info(`HUB: "${thisHub.getHubPath()}" has received Lung Model Library - ${JSON.stringify(scenarioLibrary)}`);
         if (thisHub.firstTimeScenarioLibrary) {
-            thisHub.UIBroadcastHub.getConnection().invoke("SawFirstTimeScenarioLibrary");
+            thisHub.UIBroadcastHub.getConnection().invoke("SawFirstTimeScenarioLibrary", JSON.stringify(scenarioLibrary));
             thisHub.firstTimeScenarioLibrary = false;
         }
     }

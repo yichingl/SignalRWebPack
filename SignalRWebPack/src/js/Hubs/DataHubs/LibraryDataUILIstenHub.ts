@@ -12,4 +12,23 @@ export class LibraryDataUIListenHub extends BaseUIListenHub {
     protected initUIElements() {
         console.log("initializing UI for library...")
     }
+    protected configureEvents() {
+        var thisHub = this;
+        this.addEvent("broadcastLungModelLibrary", (lungModelLibrary: string) => {
+            this.gotLungModelLibrary(thisHub, JSON.parse(lungModelLibrary));
+        });
+        this.addEvent("broadcastFirstTimeScenarioLibrary", (scenarioLibrary: string) => {
+            this.gotFirstTimeScenarioLibrary(thisHub, JSON.parse(scenarioLibrary));
+        })
+
+        console.log(`HUB: "${this.getHubPath()}" has been configured.`);
+    }
+
+    // EVENT HANDLERS
+    private gotLungModelLibrary(thisHub: any, lungModelLibrary: any) {
+
+    }
+    private gotFirstTimeScenarioLibrary(thisHub: any, scenarioLibrary: any) {
+        //showStartScreen(scenarioLibrary);
+    }
 }
