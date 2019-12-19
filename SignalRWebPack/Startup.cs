@@ -32,14 +32,6 @@ namespace SignalRWebPack
             app.UseRouting();
             app.UseDefaultFiles();
             app.UseStaticFiles();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapHub<AslControlRespisimHub>("/aslControlUI");
-                endpoints.MapHub<LibraryDataRespisimHub>("/vitalsUI");
-                endpoints.MapHub<LibraryDataRespisimHub>("/vr3UI");
-                endpoints.MapHub<LibraryDataRespisimHub>("/libraryUI");
-            });
         }
     }
 }

@@ -1,12 +1,7 @@
 ﻿import { BaseHub } from "../Base/BaseHub";
-import { HasUIHub } from "../Base/IHasUIHub";
-import { BasicUIBroadcastHub } from "../Base/BasicUIBroadcastHub";
-import { ASLControlUIListenHub } from "../UIHubs/ASLControlUIListenHub";
 
-export class ASLControlServerHub extends BaseHub implements HasUIHub {
+export class ASLControlServerHub extends BaseHub {
 
-    private UIBroadcastHub: any;
-    private UIListenHub: any;
     private aslState = "UNCONNECTED"; 
 
     // PROPERTIES
@@ -15,22 +10,14 @@ export class ASLControlServerHub extends BaseHub implements HasUIHub {
     }
 
     // CONSTRUCTORS
-    constructor(signalUrl: string) {
-        super(signalUrl, 'aslControl');
+    constructor(signalUrl: string, RespisimHub: any) {
+        super(signalUrl, 'aslControl', RespisimHub);
         this.initConnection();
     }
 
     // INIT METHODS
     protected initConnection(): void {
         super.initConnection();
-        this.initUIBroadcastHub();
-        this.initUIListenHub();
-    }
-    public initUIBroadcastHub() {
-        this.UIBroadcastHub = new BasicUIBroadcastHub(this.getHubPath());
-    }
-    public initUIListenHub() {
-        this.UIListenHub = new ASLControlUIListenHub();
     }
     protected configureEvents() {
         var thisHub = this;

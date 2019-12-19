@@ -7,6 +7,8 @@ export abstract class BaseHub {
     private readonly connection: any;
     private connected: boolean;
 
+    public RespisimEventBroadcastHub : any;
+
     // PROPERTIES 
     protected getConnection() {
         return this.connection;
@@ -22,10 +24,11 @@ export abstract class BaseHub {
     }
 
     // CONSTRUCTORS 
-    constructor(signalUrl: string, hubName: string) {
+    constructor(signalUrl : string, hubName : string, RespisimHub : any) {
         this.connected = false;
         this.baseUrl = signalUrl;
         this.hubPath = hubName;
+        this.RespisimEventBroadcastHub = RespisimHub;
 
         console.log(`HUB: building "${this.hubPath}" at url ${this.baseUrl}/${this.hubPath}`);
         this.connection = new signalR.HubConnectionBuilder()

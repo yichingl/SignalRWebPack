@@ -1,30 +1,17 @@
 ﻿import { BaseHub } from "../Base/BaseHub";
-import { HasUIHub } from "../Base/IHasUIHub";
-import { BasicUIBroadcastHub } from "../Base/BasicUIBroadcastHub";
-import { VitalsDataUIListenHub } from "../UIHubs/VitalsDataUIListenHub";
 
-export class VitalsDataServerHub extends BaseHub implements HasUIHub {
+export class VitalsDataServerHub extends BaseHub {
 
-    private UIBroadcastHub: any;
-    private UIListenHub: any;
 
     // CONSTRUCTOR
-    constructor(signalUrl: string) {
-        super(signalUrl, 'vitals');
+    constructor(signalUrl : string, RespisimHub : any) {
+        super(signalUrl, 'vitals', RespisimHub);
         this.initConnection();
     }
 
     // INIT METHODS
     protected initConnection(): void {
         super.initConnection();
-        this.initUIBroadcastHub();
-        this.initUIListenHub();
-    }
-    public initUIBroadcastHub() {
-        this.UIBroadcastHub = new BasicUIBroadcastHub(this.getHubPath());
-    }
-    public initUIListenHub() {
-        this.UIListenHub = new VitalsDataUIListenHub();
     }
     protected configureEvents() {
         var thisHub = this;

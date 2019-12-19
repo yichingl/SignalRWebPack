@@ -1,31 +1,18 @@
 ﻿import { BaseHub } from "../Base/BaseHub";
-import { HasUIHub } from "../Base/IHasUIHub";
-import { BasicUIBroadcastHub } from "../Base/BasicUIBroadcastHub";
-import { LibraryDataUIListenHub } from "../UIHubs/LibraryDataUIListenHub";
 
 export class LibraryDataServerHub extends BaseHub {
 
-    private UIBroadcastHub: any;
-    private UIListenHub: any;
     private firstTimeScenarioLibrary: boolean = true;
 
     // CONSTRUCTORS
-    constructor(signalUrl: string) {
-        super(signalUrl, 'library');
+    constructor(signalUrl: string, RespisimHub: any) {
+        super(signalUrl, 'library', RespisimHub);
         this.initConnection();
     }
 
     // INIT METHODS
     protected initConnection(): void {
         super.initConnection();
-        this.initUIBroadcastHub();
-        this.initUIListenHub();
-    }
-    public initUIBroadcastHub() {
-        this.UIBroadcastHub = new BasicUIBroadcastHub(this.getHubPath());
-    }
-    public initUIListenHub() {
-        this.UIListenHub = new LibraryDataUIListenHub();
     }
     protected configureEvents() {
         var thisHub = this;
@@ -46,14 +33,14 @@ export class LibraryDataServerHub extends BaseHub {
     // EVENT HANDLERS
     private gotLungModelLibrary(thisHub: any, lungModelLibrary: any) {
         console.info(`HUB: "${thisHub.getHubPath()}" has received Scenario Library with ${lungModelLibrary.length} entries.`);
-        thisHub.UIBroadcastHub.getConnection().invoke("SawLungModelLibrary", JSON.stringify(lungModelLibrary));
+        thisHub.RespisimEventBroadcastHub.SawLungModelLibrary(JSON.stringify(lungModelLibrary));
     }
     private gotScenarioLibrary(thisHub: any, scenarioLibrary: any) {
         console.info(`HUB: "${thisHub.getHubPath()}" has received Lung Model Library - ${JSON.stringify(scenarioLibrary)}`);
-        if (thisHub.firstTimeScenarioLibrary) {
+        /*if (thisHub.firstTimeScenarioLibrary) {
             thisHub.UIBroadcastHub.getConnection().invoke("SawFirstTimeScenarioLibrary", JSON.stringify(scenarioLibrary));
             thisHub.firstTimeScenarioLibrary = false;
-        }
+        }*/
     }
     private gotScenario(thisHub: any, scenario: any) {
         console.info(`HUB: "${thisHub.getHubPath()}" has received Scenario with ${scenario.length} entries.`);

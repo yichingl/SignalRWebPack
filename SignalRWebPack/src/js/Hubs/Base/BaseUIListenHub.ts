@@ -1,12 +1,12 @@
-﻿import { BaseHub } from "./BaseHub";
+﻿
 
-export abstract class BaseUIListenHub extends BaseHub {
+export abstract class BaseUIListenHub{
     constructor(signalUrl: string, baseUrl: string) {
-        super(signalUrl, `${baseUrl}UI`);
     }
     protected abstract initUIElements();
     protected initConnection(): void {
-        super.initConnection();
-        this.initUIElements();
     }
 }
+
+// does not need to extend basehub
+// instead

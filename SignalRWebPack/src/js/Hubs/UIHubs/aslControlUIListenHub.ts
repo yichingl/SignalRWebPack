@@ -14,12 +14,12 @@ export class ASLControlUIListenHub extends BaseUIListenHub {
     }
     protected configureEvents() {
         var thisHub = this;
-        this.addEvent("broadcastASLStatusChange", (aslState: string) => {
+        /*this.addEvent("broadcastASLStatusChange", (aslState: string) => {
             this.gotASLStatusChange(thisHub, aslState);
         });
         this.addEvent("broadcastASLDeviceChange", (aslDevice: string) => {
             this.gotASLDeviceChange(thisHub, aslDevice);
-        });
+        });*/
     }
     
     // EVENT HANDLERS

@@ -1,8 +1,8 @@
 ﻿import { BaseHub } from "../Base/BaseHub";
 
 export class VIKDataServerHub extends BaseHub {
-    constructor(signalUrl: string) {
-        super(signalUrl, 'vik');
+    constructor(signalUrl: string, RespisimHub: any) {
+        super(signalUrl, 'vik', RespisimHub);
         this.initConnection();
     }
 
