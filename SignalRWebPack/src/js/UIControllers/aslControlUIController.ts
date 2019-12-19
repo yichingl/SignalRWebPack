@@ -1,12 +1,8 @@
-﻿import { BaseUIListenHub } from "../Base/BaseUIListenHub";
+﻿import { BaseUIController } from "./Base/BaseUIController";
 
-export class ASLControlUIListenHub extends BaseUIListenHub {
+export class ASLControlUIController extends BaseUIController {
 
     // CONSTRUCTORS
-    constructor() {
-        super("", "aslControl");
-        this.initConnection();
-    }
 
     // INIT METHODS
     protected initUIElements() {

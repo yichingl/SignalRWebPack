@@ -1,9 +1,14 @@
 ﻿import * as $ from 'jquery';
+import { HasUIController } from "../Base/HasUIController";
+import { LibraryDataUIController } from "../../UIControllers/libraryDataUIController";
 
-export class LibraryDataRespisimHub {
+export class LibraryDataRespisimHub implements HasUIController {
+
+    private UIController;
 
     constructor() {
         this.registerEvents();
+        this.initUIController();
     }
 
     private registerEvents() {
@@ -14,10 +19,14 @@ export class LibraryDataRespisimHub {
             this.gotFirstTimeScenarioLibrary(scenarioLibrary);
         });
     }
+    public initUIController() {
+        this.UIController = new LibraryDataUIController();
+    }
 
     private gotLungModelLibrary(lungModelLibrary: string) {
         console.log("pushing lung model library...");
         console.log(lungModelLibrary);
+        this.UIController.updateLungModelLibraryUI(lungModelLibrary);
     }
     private gotFirstTimeScenarioLibrary(scenarioLibrary: string) {
         console.log("pushing scenario library...");

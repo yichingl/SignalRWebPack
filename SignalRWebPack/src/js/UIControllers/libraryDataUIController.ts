@@ -1,22 +1,21 @@
-﻿import { BaseUIListenHub } from "../Base/BaseUIListenHub";
+﻿import { BaseUIController } from "./Base/BaseUIController";
 
-export class LibraryDataUIListenHub extends BaseUIListenHub {
+export class LibraryDataUIController extends BaseUIController {
 
     // CONSTRUCTORS
     constructor() {
-        super("", "library");
-        this.initConnection();
+        super();
+        this.initUIElements();
     }
 
     // INIT METHODS
     protected initUIElements() {
         console.log("initializing UI for library...")
     }
-    protected configureEvents() {
-    }
 
     // EVENT HANDLERS
-    private gotLungModelLibrary(thisHub: any, lungModelLibrary: any) {
+    private updateLungModelLibraryUI(lungModelLibrary: any) {
+        console.log("UPDATING LUNGMODEL UI");
 
     }
     private gotFirstTimeScenarioLibrary(thisHub: any, scenarioLibrary: any) {
