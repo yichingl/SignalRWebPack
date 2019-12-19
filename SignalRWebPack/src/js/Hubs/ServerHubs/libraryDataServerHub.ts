@@ -37,10 +37,10 @@ export class LibraryDataServerHub extends BaseHub {
     }
     private gotScenarioLibrary(thisHub: any, scenarioLibrary: any) {
         console.info(`HUB: "${thisHub.getHubPath()}" has received Lung Model Library - ${JSON.stringify(scenarioLibrary)}`);
-        /*if (thisHub.firstTimeScenarioLibrary) {
-            thisHub.UIBroadcastHub.getConnection().invoke("SawFirstTimeScenarioLibrary", JSON.stringify(scenarioLibrary));
+        if (thisHub.firstTimeScenarioLibrary) {
+            thisHub.RespisimEventBroadcastHub.SawFirstTimeScenarioLibrary(JSON.stringify(scenarioLibrary));
             thisHub.firstTimeScenarioLibrary = false;
-        }*/
+        }
     }
     private gotScenario(thisHub: any, scenario: any) {
         console.info(`HUB: "${thisHub.getHubPath()}" has received Scenario with ${scenario.length} entries.`);
