@@ -18,7 +18,7 @@ export class LibraryDataUIController extends BaseUIController {
         console.log("UPDATING LUNGMODEL UI");
 
     }
-    private gotFirstTimeScenarioLibrary(thisHub: any, scenarioLibrary: any) {
-        //showStartScreen(scenarioLibrary);
+    private updateFirstTimeScenarioLibraryUI(scenarioLibrary: any) {
+        console.log("UPDATING SCENARIO UI");
     }
 }

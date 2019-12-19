@@ -31,5 +31,6 @@ export class LibraryDataRespisimHub implements HasUIController {
     private gotFirstTimeScenarioLibrary(scenarioLibrary: string) {
         console.log("pushing scenario library...");
         console.log(scenarioLibrary);
+        this.UIController.updateFirstTimeScenarioLibraryUI(scenarioLibrary);
     }
 }
