@@ -2,15 +2,25 @@
 
 export class LibraryDataRespisimHub {
 
-    // init (to be shared, later)
     constructor() {
+        this.registerEvents();
+    }
+
+    private registerEvents() {
         $(document).on("SawLungModelLibrary", (event: any, lungModelLibrary: string) => {
-            console.log("pushing lung model library...");
-            console.log(lungModelLibrary);
+            this.gotLungModelLibrary(lungModelLibrary);
         });
         $(document).on("SawFirstTimeScenarioLibrary", (event: any, scenarioLibrary: string) => {
-            console.log("pushing scenario library...");
-            console.log(scenarioLibrary);
+            this.gotFirstTimeScenarioLibrary(scenarioLibrary);
         });
+    }
+
+    private gotLungModelLibrary(lungModelLibrary: string) {
+        console.log("pushing lung model library...");
+        console.log(lungModelLibrary);
+    }
+    private gotFirstTimeScenarioLibrary(scenarioLibrary: string) {
+        console.log("pushing scenario library...");
+        console.log(scenarioLibrary);
     }
 }
