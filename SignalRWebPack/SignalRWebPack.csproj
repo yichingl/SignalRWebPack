@@ -11,6 +11,7 @@
     <None Remove="src\js\Hubs\Base\BaseUIHub.ts" />
     <None Remove="src\js\Hubs\Base\RespisimEventBroadcastHub.ts" />
     <None Remove="src\js\Hubs\IHasUIHub.ts" />
+    <None Remove="src\js\Hubs\RespisimHubs\aslControlRespisimHub.ts" />
     <None Remove="src\js\Hubs\RespisimHubs\libraryDataRespisimHub.ts" />
     <None Remove="src\js\Hubs\ServerHubs\vr3ControlServerHub.ts" />
     <None Remove="src\js\test.ts" />

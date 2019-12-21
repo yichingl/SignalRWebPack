@@ -8,24 +8,13 @@ export class ASLControlUIController extends BaseUIController {
     protected initUIElements() {
         //$("#simController").switchClass("fa-pause-circle", "fa-play-circle");
     }
-    protected configureEvents() {
-        var thisHub = this;
-        /*this.addEvent("broadcastASLStatusChange", (aslState: string) => {
-            this.gotASLStatusChange(thisHub, aslState);
-        });
-        this.addEvent("broadcastASLDeviceChange", (aslDevice: string) => {
-            this.gotASLDeviceChange(thisHub, aslDevice);
-        });*/
-    }
     
     // EVENT HANDLERS
-    private gotASLStatusChange(thisHub: any, aslState: string) {
-        console.log(`HUB: "${thisHub.getHubPath()}" has state - ${aslState}`);
-        thisHub.setStatusText(aslState);
+    public gotASLStatusChange(aslState: string) {
+        this.setStatusText(aslState);
     }
-    private gotASLDeviceChange(thisHub: any, aslDevice: string) {
-        console.log(`HUB: "${thisHub.getHubPath()}" has device - ${aslDevice}`);
-        thisHub.setDeviceText(aslDevice);
+    public gotASLDeviceChange(aslDevice: string) {
+        this.setDeviceText(aslDevice);
     }
 
 

@@ -36,13 +36,12 @@ export class ASLControlServerHub extends BaseHub {
     // EVENT HANDLERS
     private gotASLState(thisHub: any, aslState: string) {
         console.info(`HUB: "${thisHub.getHubPath()}" has state - ${aslState}`);
-        thisHub.UIBroadcastHub.getConnection().invoke("sawASLStatusChange", aslState);
-
+        thisHub.RespisimEventBroadcastHub.SawASLStatusChange(aslState);
         thisHub.aslState = aslState;
     }
     private gotASLDevice(thisHub: any, aslDevice: string) {
         console.info(`HUB: "${thisHub.getHubPath()}" is using device - ${aslDevice}`);
-        thisHub.UIBroadcastHub.getConnection().invoke("sawASLDeviceChange", aslDevice);
+        thisHub.RespisimEventBroadcastHub.SawASLDeviceChange(aslDevice);
     }
     private gotASLRawData(thisHub: any, aslRawData: string) {
         console.info(`HUB: "${thisHub.getHubPath()}" is using device - ${aslRawData}`);
