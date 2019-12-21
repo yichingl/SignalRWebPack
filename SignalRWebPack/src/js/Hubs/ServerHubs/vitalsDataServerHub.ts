@@ -35,6 +35,7 @@ export class VitalsDataServerHub extends BaseHub {
     // EVENT HANDLERS
     private gotVitalsConnectionStatus(thisHub: any, connected: boolean, IP: string, port: string) {
         console.log(`HUB: "${thisHub.getHubPath()}" has connection status - ${connected}.`);
+        this.RespisimEventBroadcastHub.SawVitalsConnectionStatus(connected, IP, port);
     }
     private gotVitalsValues(thisHub: any, truMonitorData: any) {
         //console.log(`HUB: "${thisHub.getHubPath()}" has connection status - ${connected}.`);

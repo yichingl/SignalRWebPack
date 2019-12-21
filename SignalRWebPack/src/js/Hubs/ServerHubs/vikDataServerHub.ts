@@ -7,7 +7,6 @@ export class VIKDataServerHub extends BaseHub {
     }
 
     protected configureEvents() {
-        var thisHub = this;
         this.addEvent("SendVIKConnectionStatus", (vikConnectionStatus: boolean) => {
             this.RespisimEventBroadcastHub.SawVIKConnectionStatus(vikConnectionStatus);
         });

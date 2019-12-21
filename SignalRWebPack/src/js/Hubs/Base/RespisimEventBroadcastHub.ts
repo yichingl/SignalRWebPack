@@ -25,4 +25,9 @@ export class RespisimEventBroadcastHub {
     public SawVIKData(vikData: any) {
         $(document).triggerHandler("SawVIKData", vikData);
     }
+
+    // Vitals Data
+    public SawVitalsConnectionStatus(connected: boolean, IP: string, port: string) {
+        $(document).triggerHandler('SawVitalsConnectionStatus', [connected, IP, port]);
+    }
 }
