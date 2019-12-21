@@ -12,19 +12,18 @@ export class VitalsDataRespisimHub implements HasUIController {
     }
 
     private registerEvents() {
-        // TODO: connection info should contain 3 items, but is currently a bool
-        $(document).on("SawVitalsConnectionStatus", (event: any, connectionInfo: any) => {
-            this.gotVitalsConnectionStatus(connectionInfo);
+        $(document).on("SawVitalsConnectionStatus", (event: any, connected: boolean, IP: string, port: string) => {
+            this.gotVitalsConnectionStatus(connected, IP, port);
         });
     }
     public initUIController() {
         this.UIController = new VitalsDataUIController();
     }
 
-    private gotVitalsConnectionStatus(connectionInfo: any) {
+    private gotVitalsConnectionStatus(connected: boolean, IP: string, port: string) {
         console.log("pushing vitals...");
-        console.log(connectionInfo[0]);
-        console.log(connectionInfo[1]);
-        console.log(connectionInfo[2]);
+        console.log(connected);
+        console.log(IP);
+        console.log(port);
     }
 }
