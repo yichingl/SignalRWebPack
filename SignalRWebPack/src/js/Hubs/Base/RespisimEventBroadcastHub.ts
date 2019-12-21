@@ -2,7 +2,7 @@
 
 export class RespisimEventBroadcastHub {
 
-    // Library
+    // Library Data
     public SawLungModelLibrary(lungModelLibrary: string) {
         $(document).triggerHandler('SawLungModelLibrary', lungModelLibrary);
     }
@@ -16,5 +16,13 @@ export class RespisimEventBroadcastHub {
     }
     public SawASLDeviceChange(aslDevice: string) {
         $(document).triggerHandler("sawASLDeviceChange", aslDevice);
+    }
+
+    // VIK Data
+    public SawVIKConnectionStatus(vikConnectionStatus: boolean) {
+        $(document).triggerHandler("SawVIKConnectionStatus", vikConnectionStatus);
+    }
+    public SawVIKData(vikData: any) {
+        $(document).triggerHandler("SawVIKData", vikData);
     }
 }

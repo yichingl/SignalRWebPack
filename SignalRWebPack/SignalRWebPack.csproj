@@ -13,6 +13,7 @@
     <None Remove="src\js\Hubs\IHasUIHub.ts" />
     <None Remove="src\js\Hubs\RespisimHubs\aslControlRespisimHub.ts" />
     <None Remove="src\js\Hubs\RespisimHubs\libraryDataRespisimHub.ts" />
+    <None Remove="src\js\Hubs\RespisimHubs\vikDataRespisimHub.ts" />
     <None Remove="src\js\Hubs\ServerHubs\vr3ControlServerHub.ts" />
     <None Remove="src\js\test.ts" />
   </ItemGroup>
